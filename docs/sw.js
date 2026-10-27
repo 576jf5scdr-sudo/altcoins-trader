@@ -1,6 +1,8 @@
 // Altcoins Trader service worker. Bump CACHE when a shell file changes.
 // data.json is network-first so a phone picks up the 15-minute publish.
-const CACHE = "altcoins-v4-shorts";
+// Hero video stays off this cache: iPhone Safari plays it with byte-range
+// requests, and a cached full file breaks that.
+const CACHE = "altcoins-v5";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,7 +10,7 @@ const SHELL = [
   "./css/app.css",
   "./js/app.js",
   "./fonts/outfit-latin-wght-normal.woff2",
-  "./img/bull.webp",
+  "./img/bull-poster.jpg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
@@ -32,6 +34,7 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (url.origin !== location.origin) return;
+  if (url.pathname.endsWith(".mp4") || url.pathname.endsWith(".webm")) return;
 
   if (url.pathname.endsWith("/data.json") || url.pathname.endsWith("/sample_data.json")) {
     e.respondWith(fetch(req).then(function (r) {
