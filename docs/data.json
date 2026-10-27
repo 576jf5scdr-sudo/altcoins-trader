@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-10-27 14:37",
+ "last_updated_athens": "2026-10-27 15:33",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -12,7 +12,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-10-27T14:15:40+02:00"
+  "bot_last_check_athens": "2026-10-27T15:30:40+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -34,6 +34,26 @@
   {
    "time_athens": "2026-10-27T14:15:40+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T14:30:48+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T14:47:53+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T15:00:40+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T15:15:41+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T15:30:40+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -43,7 +63,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 71575.1
+   "price_eur": 71725.88
   },
   "ETH": {
    "trades": 0,
@@ -51,7 +71,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2074.17
+   "price_eur": 2082.54
   },
   "SOL": {
    "trades": 0,
@@ -59,24 +79,57 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 89.66
+   "price_eur": 89.92
   }
  },
  "h4_bias": {
   "BTC": {
-   "bias": "unknown",
-   "error": "all data sources failed for BTC 1h: ['binance: 451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCEUR&interval=1h&limit=1000&startTime=1789497458814', 'kraken: kraken only returns 720 candles, need ~1000']"
+   "bias": "BEAR",
+   "last_closed_4h_close_athens": "2026-10-27 14:00",
+   "close": 71578.66,
+   "ema20": 71765.08,
+   "ema50": 72337.18,
+   "source": "binance"
   },
   "ETH": {
-   "bias": "unknown",
-   "error": "all data sources failed for ETH 1h: ['binance: 451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=ETHEUR&interval=1h&limit=1000&startTime=1789497463625', 'kraken: kraken only returns 720 candles, need ~1000']"
+   "bias": "BEAR",
+   "last_closed_4h_close_athens": "2026-10-27 14:00",
+   "close": 2074.56,
+   "ema20": 2087.52,
+   "ema50": 2118.5,
+   "source": "binance"
   },
   "SOL": {
-   "bias": "unknown",
-   "error": "all data sources failed for SOL 1h: ['binance: 451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=SOLEUR&interval=1h&limit=1000&startTime=1789497468446', 'kraken: kraken only returns 720 candles, need ~1000']"
+   "bias": "BEAR",
+   "last_closed_4h_close_athens": "2026-10-27 14:00",
+   "close": 89.75,
+   "ema20": 90.51,
+   "ema50": 91.84,
+   "source": "binance"
   }
  },
- "activity": [],
+ "activity": [
+  {
+   "t": "10-27 15:30",
+   "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
+   "kind": "check"
+  },
+  {
+   "t": "10-27 14:00",
+   "text": "SOL 4h bias bearish. Waiting",
+   "kind": "bear"
+  },
+  {
+   "t": "10-27 14:00",
+   "text": "ETH 4h bias bearish. Waiting",
+   "kind": "bear"
+  },
+  {
+   "t": "10-27 14:00",
+   "text": "BTC 4h bias bearish. Waiting",
+   "kind": "bear"
+  }
+ ],
  "backtest": {
   "info": {
    "data_start": "2024-10-27 11:00:00+00:00",
