@@ -3,6 +3,77 @@
 Pretend-trades Bitcoin, Ethereum and Solana against the euro. **No real money, no exchange account, no API keys** – it only reads free public prices (Binance public data; Kraken as a backup for 1h data only).
 It starts with a virtual €1,000 and writes down every pretend trade so you can see whether an idea works *before* risking anything real.
 
+## On your iPhone
+
+The dashboard is a small website in the `docs` folder. Pin it to your home screen and open it between deliveries. It shows the pretend-money account. It cannot place a real order.
+
+The site reads one file, `docs/data.json`. The Linux server rewrites that file every 15 minutes and pushes it to GitHub. GitHub Pages serves the `docs` folder. The phone reloads the file once a minute. The “Last updated” line is Athens time.
+
+### 1. Turn the site on
+
+GitHub Pages serves the `docs` folder from the `master` branch. Make the repository public so the phone can open the page without a GitHub login.
+
+1. Open this repository on GitHub.
+2. **Settings → General → Danger zone → Change repository visibility → Public.**
+3. **Settings → Pages.**
+4. Under Build and deployment, set Source to **Deploy from a branch**.
+5. Branch: **master**. Folder: **/docs**. Click **Save**.
+6. Wait a minute. Pages shows a link like `https://576jf5scdr-sudo.github.io/altcoins-trader/`. That is the address you open on the phone.
+
+### 2. Let the server publish the numbers
+
+On the server, use the checkout that runs the bot, and stay on the `master` branch. That is the branch the phone site is built from.
+
+Try one publish from that folder:
+
+```
+python3 publish_data.py
+```
+
+You should see `wrote docs/data.json` and `pushed master`. On GitHub, `master` gets a new commit that changes only `docs/data.json`. The commit contains the paper account, the coin bias, the log lines and the backtest table. It does not contain passwords or API keys.
+
+If git cannot push, give the server a token that can update this repository:
+
+1. On GitHub: **Settings → Developer settings → Fine-grained personal access tokens → Generate new token.**
+2. Restrict the token to this repository. Repository permission: **Contents → Read and write.**
+3. On the server, save the token in a file that git will not commit:
+
+```
+mkdir -p ~/.config/altcoins-trader
+nano ~/.config/altcoins-trader/github_token
+chmod 600 ~/.config/altcoins-trader/github_token
+```
+
+Paste the token on its own, save, and run `python3 publish_data.py` again. The token stays on the server. It can update the dashboard file. It cannot move money.
+
+Then publish every 15 minutes, shortly after the bot’s own check, so a new paper trade is already saved:
+
+```
+*/15 * * * * cd /path/to/altcoins-trader && sleep 90 && /usr/bin/python3 publish_data.py >> logs/publish.log 2>&1
+```
+
+`logs/` is ignored by git. To write `docs/data.json` without committing, run `python3 publish_data.py --no-push`.
+
+### 3. Put the icon on the home screen
+
+1. On the iPhone, open **Safari**.
+2. Go to the Pages link from step 1.
+3. Tap the **Share** button (the square with the arrow, at the bottom of Safari).
+4. Tap **Add to Home Screen**.
+5. The name under the icon is **Altcoins**. Tap **Add**.
+6. Open **Altcoins** from the home screen. It fills the screen like an app. The green **LIVE** dot means the page is showing the published file. It refreshes by itself every minute, and again whenever you open it.
+
+The orange **Chat** button opens your helper in the Grok app.
+
+### Look at the layout on a computer
+
+```
+cd docs
+python3 -m http.server 8080
+```
+
+Open http://localhost:8080 for the real file. Open http://localhost:8080/?sample=1 to see an example account with trades, so you can check the layout. The yellow line at the top means those trades are the example, not the live paper account.
+
 ## Honest summary of the backtests (730 days of real data, 2024-11-10 → 2026-10-27 UTC)
 Fee 0.25% per trade (Bybit EU taker) + 0.05% slippage, every fill. Full table: run `python3 backtest.py` (prints it, saves `backtest_results.json`).
 **All three strategies lost money over the full period** (smart-money version: about -27% combined, vs -30% for buy & hold of the same 3 coins). It did best in the last 30% (out-of-sample): -1.2% combined, with BTC +2.3% and ETH +0.9%, while buy & hold gained about +17% in that stretch. Fees are the main killer: roughly 265 EUR of fees on 223 trades in the full run. Nothing here is proof that the bot makes money. Don't use real money on this.
@@ -43,6 +114,8 @@ Fee 0.25% per trade (Bybit EU taker) + 0.05% slippage, every fill. Full table: r
 | `live.py` | One paper-trading check (new closed 15m candles → same engine as the backtest) |
 | `run_forever.sh`, `start.sh`, `stop.sh`, `status.sh` | Runs `live.py` ~20 s after every quarter hour in the background |
 | `dashboard_data.py` | Prints current dashboard data as JSON (account, positions, trades, equity curve, 4h bias, backtest) |
+| `publish_data.py` | Writes that JSON to `docs/data.json`, commits only that file, and pushes it |
+| `docs/` | The phone site (plain HTML, no build). GitHub Pages serves this folder |
 | `ledger.csv` | Every pretend fill |
 | `portfolio.json` | Current state; `snapshots.csv` = equity history (Athens time) |
 | `state/state.json` | Bot memory – don't edit |
@@ -54,6 +127,7 @@ cd /workspace/paper-bot
 ./start.sh      # start in background   ./status.sh  # see it   ./stop.sh  # stop
 python3 fetch_data.py && python3 backtest.py    # refresh history and re-test
 python3 dashboard_data.py                       # JSON for the dashboard
+python3 publish_data.py                          # write docs/data.json and push it for the phone
 ```
 **Switching strategy:** `./stop.sh`, move `state/ ledger.csv snapshots.csv portfolio.json` into a new folder under `archive/`, set `strategy.active` in `config.json`, `./start.sh` (fresh €1,000). `live.py` refuses to run if the saved state belongs to a different strategy.
 
