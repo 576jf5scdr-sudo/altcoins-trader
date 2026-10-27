@@ -1,6 +1,6 @@
 // Altcoins Trader service worker. Bump CACHE when a shell file changes.
 // data.json is network-first so a phone picks up the 15-minute publish.
-const CACHE = "altcoins-v3";
+const CACHE = "altcoins-v4";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const SHELL = [
   "./css/app.css",
   "./js/app.js",
   "./fonts/outfit-latin-wght-normal.woff2",
+  "./img/bull.webp",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
