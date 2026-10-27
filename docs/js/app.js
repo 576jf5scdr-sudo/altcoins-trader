@@ -26,7 +26,6 @@
   ];
   var COIN_STRATS = [STRATS[2], STRATS[1], STRATS[0]];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var PLOT = { x: 5, y: 5, w: 90, h: 48 };
 
   var state = { data: null, period: "FULL", backtestOpen: false, failedRefresh: false, sample: false, pinScroll: true };
 
@@ -449,15 +448,6 @@
     return lines;
   }
 
-  function watchSeries(D) {
-    var eq = (Array.isArray(D.equity_curve) ? D.equity_curve : []).map(function (p) {
-      return num(p.equity_eur);
-    }).filter(function (v) { return v != null; });
-    if (eq.length >= 2) return eq.slice(-36);
-    var prices = ORDER.map(function (c) { return num((D.per_coin[c] || {}).price_eur); }).filter(function (v) { return v != null; });
-    return prices.length >= 2 ? prices : [1, 1];
-  }
-
   function moodOf(D) {
     var pos = Array.isArray(D.open_positions) ? D.open_positions : [];
     var unreal = 0;
@@ -474,68 +464,13 @@
     return "trade";
   }
 
-  function candleBars(values) {
-    var src = values.slice(-8);
-    if (src.length < 2) src = [src[0] == null ? 1 : src[0], src[0] == null ? 1 : src[0]];
-    var bars = [];
-    var i;
-    for (i = 1; i < src.length; i++) {
-      var o = src[i - 1];
-      var c = src[i];
-      bars.push({
-        o: o,
-        c: c,
-        h: Math.max(o, c),
-        l: Math.min(o, c),
-        up: c >= o
-      });
-    }
-    return bars;
-  }
-
-  function layoutCandles(bars) {
-    var lo = bars[0].l;
-    var hi = bars[0].h;
-    var i;
-    for (i = 1; i < bars.length; i++) {
-      if (bars[i].l < lo) lo = bars[i].l;
-      if (bars[i].h > hi) hi = bars[i].h;
-    }
-    var flat = hi - lo < 1e-6;
-    var gap = PLOT.w / bars.length;
-    return bars.map(function (b, idx) {
-      function yOf(v) {
-        if (flat) return PLOT.y + PLOT.h * 0.55;
-        return PLOT.y + PLOT.h - ((v - lo) / (hi - lo)) * PLOT.h;
-      }
-      var x = PLOT.x + idx * gap + gap * 0.2;
-      var bw = Math.max(4.5, gap * 0.6);
-      var yO = yOf(b.o);
-      var yC = yOf(b.c);
-      var top = Math.min(yO, yC);
-      var bot = Math.max(yO, yC);
-      return {
-        x: x,
-        w: bw,
-        top: top,
-        h: Math.max(flat ? 3.4 : 3.6, bot - top),
-        wickX: x + bw / 2,
-        yH: flat ? yOf(b.c) - 1.4 : yOf(b.h),
-        yL: flat ? yOf(b.c) + 1.4 : yOf(b.l),
-        up: b.up,
-        tip: [x + bw / 2, yC]
-      };
-    });
-  }
-
   function stageMarkup() {
     return '<div class="mascot" aria-hidden="true">' +
-      '<img class="bull-art" src="img/bull.webp" alt="" width="840" height="840" draggable="false">' +
-      '<svg class="lapchart" viewBox="0 0 100 58" preserveAspectRatio="none">' +
-      '<rect width="100" height="58" fill="#0c0908"/>' +
-      '<g class="candles"></g>' +
-      '</svg>' +
-      '<div class="steam"><i></i><i></i><i></i></div>' +
+      '<video class="bull-loop" muted autoplay loop playsinline webkit-playsinline poster="img/bull-poster.jpg" preload="metadata" disablepictureinpicture>' +
+      '<source src="img/bull.mp4" type="video/mp4">' +
+      '<source src="img/bull.webm" type="video/webm">' +
+      '</video>' +
+      '<img class="bull-poster" src="img/bull-poster.jpg" alt="" width="720" height="720">' +
       '<i class="sweat"></i>' +
       '<i class="sparkle s1"></i><i class="sparkle s2"></i><i class="sparkle s3"></i>' +
       '</div>';
@@ -545,6 +480,12 @@
     state.watchToken = (state.watchToken || 0) + 1;
     if (state.frame) cancelAnimationFrame(state.frame);
     state.frame = 0;
+    if (state.onVis) {
+      document.removeEventListener("visibilitychange", state.onVis);
+      state.onVis = null;
+    }
+    var video = document.querySelector(".hero .bull-loop");
+    if (video) video.pause();
   }
 
   function startWatch(D) {
@@ -553,72 +494,44 @@
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var token = state.watchToken || 0;
     var mood = moodOf(D);
-    var bars = layoutCandles(candleBars(watchSeries(D)));
     mascot.className = "mascot mood-" + mood;
-    var host = mascot.querySelector(".candles");
-    var ns = "http://www.w3.org/2000/svg";
-    host.textContent = "";
-    var candleEls = bars.map(function (b) {
-      var g = document.createElementNS(ns, "g");
-      var wick = document.createElementNS(ns, "line");
-      wick.setAttribute("x1", b.wickX.toFixed(2));
-      wick.setAttribute("x2", b.wickX.toFixed(2));
-      wick.setAttribute("y1", Math.max(1, b.yH).toFixed(2));
-      wick.setAttribute("y2", Math.min(57, b.yL).toFixed(2));
-      wick.setAttribute("stroke", "#F6E7CF");
-      wick.setAttribute("stroke-width", "1.1");
-      wick.setAttribute("stroke-linecap", "round");
-      var body = document.createElementNS(ns, "rect");
-      body.setAttribute("x", b.x.toFixed(2));
-      body.setAttribute("y", b.top.toFixed(2));
-      body.setAttribute("width", b.w.toFixed(2));
-      body.setAttribute("height", b.h.toFixed(2));
-      body.setAttribute("rx", "0.6");
-      body.setAttribute("fill", b.up ? "#FF6A1A" : "#F3E6D4");
-      g.appendChild(wick);
-      g.appendChild(body);
-      host.appendChild(g);
-      return g;
-    });
-
-    function pose(t, draw) {
-      var breath = 1 + (reduce ? 0 : Math.sin(t * 1.45) * 0.016);
-      var bob = reduce ? 0 : Math.sin(t * 1.3) * 3.2;
-      var tilt = 0;
-      if (!reduce) {
-        var cyc = t % 6.8;
-        if (cyc > 5.35) {
-          var u = (cyc - 5.35) / 1.15;
-          if (u < 1) tilt = Math.sin(u * Math.PI) * 2.2;
-        }
+    var video = mascot.querySelector(".bull-loop");
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      if (reduce) {
+        video.pause();
+        video.autoplay = false;
+        video.removeAttribute("autoplay");
+      } else {
+        var kick = function () { video.play().catch(function () {}); };
+        if (document.hidden) video.pause();
+        else kick();
+        state.onVis = function () {
+          if (token !== state.watchToken) return;
+          if (document.hidden) video.pause();
+          else kick();
+        };
+        document.addEventListener("visibilitychange", state.onVis);
       }
-      var hop = 0;
-      if (mood === "profit" && !reduce) hop = -Math.pow(Math.sin(t * 2.45), 2) * 8;
-      mascot.style.transform = "translateY(" + (bob + hop).toFixed(2) + "px) rotate(" + tilt.toFixed(2) + "deg) scale(" + breath.toFixed(4) + ")";
-      var e = reduce ? 1 : Math.max(0, Math.min(1, draw));
-      e = 1 - Math.pow(1 - e, 3);
-      candleEls.forEach(function (el, i) {
-        var on = e >= (candleEls.length <= 1 ? 1 : i / candleEls.length);
-        el.setAttribute("opacity", on ? "1" : "0");
-      });
     }
-
+    if (reduce || mood !== "profit") {
+      mascot.style.transform = "";
+      return;
+    }
     var t0 = performance.now();
     function frame(now) {
       if (token !== state.watchToken) return;
-      if (document.hidden) {
-        state.frame = requestAnimationFrame(frame);
-        return;
+      if (!document.hidden) {
+        var hop = -Math.pow(Math.sin((now - t0) / 1000 * 2.45), 2) * 8;
+        mascot.style.transform = "translateY(" + hop.toFixed(2) + "px)";
       }
-      var elapsed = now - t0;
-      pose(elapsed / 1000, (elapsed - 240) / 1800);
       state.frame = requestAnimationFrame(frame);
     }
-    if (reduce) pose(0, 1);
-    else {
-      pose(0, 0);
-      state.frame = requestAnimationFrame(frame);
-    }
+    state.frame = requestAnimationFrame(frame);
   }
 
   function hero(D) {
