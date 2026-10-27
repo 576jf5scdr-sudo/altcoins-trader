@@ -171,7 +171,7 @@ export default function App() {
         <div style={card}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
             <span style={h}>4h bias now</span>
-            <span style={small}>long entries only when bull</span>
+            <span style={small}>{D.allow_shorts ? "long when bull, short when bear" : "long entries only when bull"}</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "8px", marginTop: "10px" }}>
             {bias.map((c: string) => {

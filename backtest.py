@@ -18,7 +18,8 @@ STRATS = [  # (label, strategy name, config overrides)
 VARIANTS = [  # extra SMC variants, reported separately; defaults are NOT chosen from these
     ("smc variant: no sweep required", "smc", {"require_sweep": False}),
     ("smc variant: target = next 1h swing high", "smc", {"target_mode": "liquidity"}),
-    ("smc variant: shorts allowed (paper margin)", "smc", {"allow_shorts": True}),
+    ("smc short-only (perp short, funding)", "smc", {"allow_longs": False, "allow_shorts": True}),
+    ("smc long+short (perp short, funding)", "smc", {"allow_longs": True, "allow_shorts": True}),
 ]
 
 
@@ -49,7 +50,11 @@ def summarize(eng, start_eq):
     return dict(ret_pct=(eng.equity() / start_eq - 1) * 100, end_eur=eng.equity(), win_rate=(wins / n * 100 if n else None),
                 max_dd_pct=eng.max_dd * 100, trades=n, fees_eur=float(sum(f["fee_eur"] for f in eng.fills)),
                 open_at_end=len(eng.positions), long_trades=int((t["side"] == "long").sum()) if n else 0,
-                short_trades=int((t["side"] == "short").sum()) if n else 0)
+                short_trades=int((t["side"] == "short").sum()) if n else 0,
+                funding_eur=float(t["funding_eur"].sum()) if n else 0.0,
+                long_pnl_eur=float(t.loc[t["side"] == "long", "pnl_eur"].sum()) if n else 0.0,
+                short_pnl_eur=float(t.loc[t["side"] == "short", "pnl_eur"].sum()) if n else 0.0,
+                short_win_rate=(float((t.loc[t["side"] == "short", "pnl_eur"] > 0).mean() * 100) if n and (t["side"] == "short").any() else None))
 
 
 def buy_hold(h1, cfg, t0, t1, w):
@@ -123,10 +128,14 @@ def main():
             trades_out[(label, pname)] = eng.trades
         print("done", label, flush=True)
     json.dump(results, open(a.out, "w"), indent=1, default=str)
-    # save the combined-portfolio trade list of the default SMC strategy for inspection
+    # save the combined-portfolio trade lists for inspection
     for (label, pname), tr in trades_out.items():
-        if label.startswith("smc (") and pname == "FULL" and tr:
+        if pname != "FULL" or not tr:
+            continue
+        if label.startswith("smc ("):
             pd.DataFrame(tr).to_csv(os.path.join(HERE, "backtest_trades_smc_full.csv"), index=False)
+        elif label.startswith("smc long+short"):
+            pd.DataFrame(tr).to_csv(os.path.join(HERE, "backtest_trades_smc_longshort_full.csv"), index=False)
     # ------- print tables
     for pname, pr in results["periods"].items():
         t0, t1 = periods[pname]

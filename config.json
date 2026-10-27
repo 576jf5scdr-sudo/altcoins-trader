@@ -14,7 +14,8 @@
   "account": {
     "starting_balance_eur": 1000.0,
     "taker_fee_pct": 0.25,
-    "slippage_pct": 0.05
+    "slippage_pct": 0.05,
+    "short_funding_pct_per_8h": 0.01
   },
   "risk": {
     "risk_per_trade_pct": 1.0,
@@ -58,7 +59,9 @@
       "rr": 2.0,
       "liq_min_r": 1.5, "liq_max_r": 4.0,
       "exit_on_h4_turn": true,
-      "allow_shorts": false
+      "allow_longs": true,
+      "allow_shorts": true,
+      "_allow_shorts_doc": "false = long-only (LIVE default). true = also take mirrored shorts, modelled as 1x perpetual-futures shorts (fee + slippage + short_funding_pct_per_8h). allow_longs=false with allow_shorts=true = short-only (research)."
     }
   },
   "backtest": {

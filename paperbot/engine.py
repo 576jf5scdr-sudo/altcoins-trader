@@ -6,10 +6,18 @@ Rules:
     same candle we assume the stop was hit first (pessimistic).
   * Every fill pays the taker fee and slippage against you.
   * Size: risk_per_trade % of equity if the stop is hit, but never more than max_allocation % of equity per coin.
-  * One position per coin. Long-only unless the strategy config allows shorts (paper margin short, not possible on plain spot).
+  * One position per coin. Long-only unless the strategy config allows shorts (allow_shorts, default false).
+  * Shorts are modelled as PERPETUAL FUTURES shorts (Bybit EU style, 1x, no leverage): same taker fee + slippage as spot,
+    plus a funding cost charged on the short's notional every candle it is open: account.short_funding_pct_per_8h
+    (default 0.01% per 8h = conservative: the short always PAYS; real funding is often paid TO shorts). Longs stay spot.
 """
 from dataclasses import dataclass, field, asdict
 from . import strategies
+
+
+def tf_minutes(tf):
+    n, u = int(tf[:-1]), tf[-1]
+    return n * {"m": 1, "h": 60, "d": 1440}[u]
 
 
 @dataclass
@@ -22,6 +30,7 @@ class Position:
     take: float
     entry_fee: float
     entry_notional: float
+    funding_paid: float = 0.0   # EUR paid so far as perp funding (shorts only); default keeps old state files loadable
 
 
 @dataclass
@@ -49,6 +58,8 @@ class Engine:
 
     @property
     def fee(self): return self.cfg["account"]["taker_fee_pct"] / 100
+    @property
+    def funding_per_8h(self): return self.cfg["account"].get("short_funding_pct_per_8h", 0.01) / 100
     @property
     def slip(self): return self.cfg["account"]["slippage_pct"] / 100
 
@@ -83,10 +94,10 @@ class Engine:
         value = p.qty * px
         fee = value * self.fee
         self.cash += (value - fee) if p.side > 0 else -(value + fee)
-        pnl = p.side * (value - p.entry_notional) - p.entry_fee - fee
+        pnl = p.side * (value - p.entry_notional) - p.entry_fee - fee - p.funding_paid
         self.trades.append(dict(coin=coin, side="long" if p.side > 0 else "short", entry_time=p.entry_time, exit_time=str(ts),
                                 entry_price=p.entry_price, exit_price=px, qty=p.qty, pnl_eur=pnl, pnl_pct=pnl / p.entry_notional * 100,
-                                fees_eur=p.entry_fee + fee, reason=reason))
+                                fees_eur=p.entry_fee + fee, funding_eur=p.funding_paid, reason=reason))
         self.fills.append(dict(time=str(ts), coin=coin, side="SELL" if p.side > 0 else "BUY_TO_COVER", qty=p.qty, price=px, fee_eur=fee,
                                value_eur=value, reason=reason, cash_after=self.cash))
 
@@ -99,6 +110,10 @@ class Engine:
             elif pend["action"] == "close" and coin in self.positions:
                 self._close(coin, o, ts, pend["reason"])
         pos = self.positions.get(coin)                                # 2) stop / take-profit inside this candle
+        if pos and pos.side < 0 and self.funding_per_8h:              #    perp funding on a short held through this candle
+            fund = pos.qty * o * self.funding_per_8h * tf_minutes(self.scfg["timeframe"]) / 480
+            self.cash -= fund
+            pos.funding_paid += fund
         if pos:
             if pos.side > 0:
                 if l <= pos.stop: self._close(coin, min(o, pos.stop), ts, "stop_loss")

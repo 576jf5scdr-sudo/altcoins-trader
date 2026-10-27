@@ -39,14 +39,14 @@ def h4_bias(cfg):
     return out
 
 
-def activity(limit=14):
+def activity(limit=14, shorts=False):
     """Short log lines built from the real live.log (newest first). Only state CHANGES per coin are listed."""
     import re
     path = p("logs", "live.log")
     if not os.path.exists(path):
         return []
     rx = re.compile(r"^\[(\d{4}-\d\d-\d\d) (\d\d:\d\d):\d\d Athens\] (.*)$")
-    st = re.compile(r"^(\w+): \+\d+ candle\(s\).*?4h bull=(\w+) bear=(\w+) \| 1h structure up=(\w+) \| setup signal long=(\w+); pending=(.*)$")
+    st = re.compile(r"^(\w+): \+\d+ candle\(s\).*?4h bull=(\w+) bear=(\w+) \| 1h structure up=(\w+) \| setup signal long=(\w+)(?: short=(\w+) \(1h structure down=(\w+)\))?; pending=(.*)$")
     tr = re.compile(r"^TRADE (\w+) (\w+) qty ([\d.]+) @ ([\d.]+) EUR \((\w+)\)")
     last, out, latest = {}, [], None
     for line in open(path, errors="ignore"):
@@ -57,9 +57,14 @@ def activity(limit=14):
         latest = when
         s = st.match(msg)
         if s:
-            coin, bull, bear, up, sig, pend = s.groups()
+            coin, bull, bear, up, sig, ssig, down, pend = s.groups()
             bull, bear, up, sig = bull == "True", bear == "True", up == "True", sig == "True"
-            if bull and up and sig: txt, kind = f"{coin} setup ready on 15m, entry signal", "setup"
+            has_s = ssig is not None
+            ssig, down = ssig == "True", down == "True"
+            if bear and shorts and has_s and down and ssig: txt, kind = f"{coin} short setup ready on 15m, entry signal", "setup"
+            elif bear and shorts and has_s and down: txt, kind = f"{coin} 4h bearish, 1h structure down. Watching 15m for sweep + break (short)", "structure"
+            elif bear and shorts and has_s: txt, kind = f"{coin} 4h bearish, 1h structure not down yet. Waiting (short)", "wait"
+            elif bull and up and sig: txt, kind = f"{coin} setup ready on 15m, entry signal", "setup"
             elif bull and up: txt, kind = f"{coin} 4h bullish, 1h structure up. Watching 15m for sweep + break", "structure"
             elif bull: txt, kind = f"{coin} 4h bullish, 1h structure not up yet. Waiting", "wait"
             elif bear: txt, kind = f"{coin} 4h bias bearish. Waiting", "bear"
@@ -72,8 +77,9 @@ def activity(limit=14):
         x = tr.match(msg)
         if x:
             side, coin, qty, price, why = x.groups()
-            buy = side.lower() in ("buy", "long")
-            out.append(dict(t=when, text=f"{'Bought' if buy else 'Sold'} {coin} at €{float(price):,.2f} ({why.replace('_', ' ')})", kind="buy" if buy else "sell"))
+            sl = side.lower()
+            word = {"buy": "Bought", "long": "Bought", "sell": "Sold", "sell_short": "Shorted", "buy_to_cover": "Covered short on"}.get(sl, "Sold")
+            out.append(dict(t=when, text=f"{word} {coin} at €{float(price):,.2f} ({why.replace('_', ' ')})", kind="buy" if sl in ("buy", "long", "buy_to_cover") else "sell"))
         elif "ERROR" in msg:
             out.append(dict(t=when, text="Check failed: " + msg[:80], kind="error"))
     res = out[-limit:][::-1]
@@ -93,7 +99,7 @@ def main():
         trades = json.load(open(p("state", "state.json")))["engine"].get("trades", [])
     closed = []
     for t in trades:
-        closed.append({k: t.get(k) for k in ("coin", "side", "entry_time", "exit_time", "entry_price", "exit_price", "pnl_eur", "pnl_pct", "fees_eur", "reason")})
+        closed.append({k: t.get(k) for k in ("coin", "side", "entry_time", "exit_time", "entry_price", "exit_price", "pnl_eur", "pnl_pct", "fees_eur", "funding_eur", "reason")})
     per_coin = {}
     for c in cfg["coins"]:
         tc = [t for t in trades if t.get("coin") == c]
@@ -105,6 +111,7 @@ def main():
     out = dict(
         last_updated_athens=datetime.now(ATHENS).strftime("%Y-%m-%d %H:%M"), timezone="Europe/Athens (UTC+2)",
         strategy=port.get("strategy"), timeframe=port.get("timeframe"),
+        allow_shorts=bool(cfg["strategies"].get(port.get("strategy") or "smc", {}).get("allow_shorts", False)),
         account=dict(start_eur=start, equity_eur=port.get("equity_eur"), cash_eur=port.get("cash_eur"),
                      pnl_eur=round(port.get("equity_eur", start) - start, 2), pnl_pct=port.get("total_return_pct"),
                      max_drawdown_pct=port.get("max_drawdown_pct"), closed_trades=port.get("closed_trades"), wins=port.get("wins"),
@@ -114,7 +121,7 @@ def main():
         recent_fills=ledger.tail(20).iloc[::-1].to_dict("records") if len(ledger) else [],
         recent_closed_trades=closed[-20:][::-1],
         equity_curve=snaps[["time_athens", "equity_eur"]].to_dict("records") if len(snaps) else [],
-        per_coin=per_coin, h4_bias=h4_bias(cfg), activity=activity(),
+        per_coin=per_coin, h4_bias=h4_bias(cfg), activity=activity(shorts=bool(cfg["strategies"]["smc"].get("allow_shorts", False))),
         backtest=bt,
     )
     print(json.dumps(out, indent=1, default=str))

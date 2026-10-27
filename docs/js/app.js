@@ -21,7 +21,8 @@
     ["smc (4h bias, 1h struct, 15m entry)", "SMC (live)"],
     ["smc variant: no sweep required", "SMC, no sweep needed"],
     ["smc variant: target = next 1h swing high", "SMC, swing-high target"],
-    ["smc variant: shorts allowed (paper margin)", "SMC + shorts"]
+    ["smc short-only (perp short, funding)", "SMC short-only"],
+    ["smc long+short (perp short, funding)", "SMC long + short"]
   ];
   var COIN_STRATS = [STRATS[2], STRATS[1], STRATS[0]];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -122,7 +123,7 @@
       h("div", { class: "tile-top" }, [
         badge(opts.coin),
         h("b", { text: opts.coin }),
-        h("span", { class: "side", text: opts.side || "" })
+        h("span", { class: "side " + (opts.side === "short" ? "short" : "long"), text: opts.side ? String(opts.side).toUpperCase() : "" })
       ]),
       h("div", { class: "tile-nums" }, [
         h("span", { class: "pct " + tone(opts.big), text: pct0(opts.big) }),
@@ -142,7 +143,7 @@
     return h("div", { class: "empty" }, [
       moon(),
       h("strong", { text: "No trades yet" }),
-      h("p", { text: "The bot is patient. It only buys after a full setup: 4h bullish, 1h higher highs and lows, a liquidity sweep, a 15m break of structure, then a pullback. Until then it stays in cash." })
+      h("p", { text: "The bot is patient. It only trades after a full setup: 4h trend, 1h structure, a liquidity sweep, a 15m break of structure, then a pullback. It buys when the trend is up and, when shorts are on, sells short when the trend is down. Until then it stays in cash." })
     ]);
   }
 
@@ -197,7 +198,7 @@
     return h("section", { class: "card" }, [
       h("div", { class: "card-h" }, [
         h("h2", { text: "4h bias now" }),
-        h("span", { text: "long entries only when bull" })
+        h("span", { text: D.allow_shorts ? "long when bull, short when bear" : "long entries only when bull" })
       ]),
       grid,
       h("p", { class: "note", text: closed

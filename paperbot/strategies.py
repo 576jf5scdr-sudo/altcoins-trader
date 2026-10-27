@@ -210,6 +210,8 @@ def signal(name, s, row, prev, side):
             for tag, sd in (("long", 1), ("short", -1)):
                 if tag == "short" and not s["allow_shorts"]:
                     continue
+                if tag == "long" and not s.get("allow_longs", True):   # short-only mode (research only)
+                    continue
                 if row[f"smc_{tag}"]:
                     sf = row[f"smc_{tag}_stop"]
                     liq = row[f"smc_{tag}_liq"]

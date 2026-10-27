@@ -95,7 +95,7 @@ Fee 0.25% per trade (Bybit EU taker) + 0.05% slippage, every fill. Full table: r
 7. **Stop** = below the low of the leg (the sweep low), minus 0.05% buffer. Stops tighter than 0.4% or wider than 3% are skipped.
 8. **Target** = 2 × the risk (2R). Alternative `target_mode: "liquidity"` = next 1h swing high (clamped between 1.5R and 4R).
 9. **Extra exit:** if the 4h bias flips away, close at the next open.
-10. **Shorts** are off (`allow_shorts: false`, spot trading can't short). Turning on gives a mirrored version for paper margin trading.
+10. **Shorts** (`allow_shorts`, now `true` on the live paper bot): mirrored setup (4h bearish, 1h lower highs/lows, 15m sweep of a high -> bearish BOS -> short at bearish FVG/OB, stop above the sweep high, 2R). Modelled as 1x perpetual-futures shorts (Bybit EU style): same fee + slippage plus a conservative funding cost (`account.short_funding_pct_per_8h`, 0.01% per 8h, always paid by the short). `allow_longs: false` + `allow_shorts: true` = short-only research mode. Set `allow_shorts` back to `false` for long-only. `python3 compare_modes.py` prints long-only / short-only / long+short vs buy & hold.
 11. **Sizing:** risk ≈1% of account per trade (position = 1% ÷ stop distance), max 30% of the account in one coin, long only, no leverage.
 12. Costs are simulated against you: 0.25% fee per fill + 0.05% slippage. Orders fill at the next candle's open. Stop is checked before target if both could hit in one candle.
 

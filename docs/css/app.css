@@ -285,7 +285,9 @@ button { cursor: pointer; }
   display: inline-flex; align-items: center; justify-content: center; flex: none;
 }
 .tile-top b { font-size: 13px; }
-.tile-top .side { font-size: 10px; color: var(--muted); }
+.tile-top .side { font-size: 10px; color: var(--muted); letter-spacing: .04em; }
+.tile-top .side.short { color: #E5484D; font-weight: 600; }
+.tile-top .side.long { color: #1F9D63; font-weight: 600; }
 .tile-nums { display: flex; justify-content: space-between; align-items: baseline; gap: 4px; margin-top: 9px; flex-wrap: wrap; }
 .tile .pct { font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
 .tile .eur { font-family: var(--mono); font-size: 11px; font-weight: 700; }

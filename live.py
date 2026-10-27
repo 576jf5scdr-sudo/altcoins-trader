@@ -47,9 +47,10 @@ def live_prices(cfg, eng):
     return {k: v for k, v in out.items() if v}
 
 
-def describe(name, row):
+def describe(name, row, scfg_shorts=False):
     if name == "smc":
-        return f"4h bull={bool(row['bull4'])} bear={bool(row['bear4'])} | 1h structure up={bool(row['h1_ok_long'])} | setup signal long={bool(row['smc_long'])}"
+        return (f"4h bull={bool(row['bull4'])} bear={bool(row['bear4'])} | 1h structure up={bool(row['h1_ok_long'])} | setup signal long={bool(row['smc_long'])}"
+                + (f" short={bool(row['smc_short'])} (1h structure down={bool(row['h1_ok_short'])})" if scfg_shorts else ""))
     if name == "mtf_ema":
         return f"4h bull={bool(row['bull4'])} dipped={bool(row['dipped'])}"
     return f"EMAfast={row['ema_fast']:.2f} EMAslow={row['ema_slow']:.2f}"
@@ -85,7 +86,7 @@ def main():
             eng.on_candle(coin, recs[i], recs[i - 1] if i else None)
             cursor[coin] = str(recs[i]["time"])
         if idx:
-            log(f"{coin}: +{len(idx)} candle(s) up to {cursor[coin]} UTC ({src}); close {recs[-1]['close']:.2f}; {describe(name, recs[-1])}; pending={eng.pending.get(coin)}")
+            log(f"{coin}: +{len(idx)} candle(s) up to {cursor[coin]} UTC ({src}); close {recs[-1]['close']:.2f}; {describe(name, recs[-1], scfg.get('allow_shorts', False))}; pending={eng.pending.get(coin)}")
     new_fills = eng.fills[n_fills_before:]
     for f in new_fills:
         log(f"TRADE {f['side']} {f['coin']} qty {f['qty']:.6f} @ {f['price']:.2f} EUR ({f['reason']}), fee {f['fee_eur']:.2f}")
@@ -100,9 +101,10 @@ def main():
         px = prices.get(c, p.entry_price)
         pos[c] = dict(side="long" if p.side > 0 else "short", qty=p.qty, entry_price=p.entry_price, entry_time_utc=p.entry_time,
                       stop=p.stop, take_profit=p.take, price_now=px, value_eur=p.qty * px,
-                      unrealised_pnl_eur=p.side * p.qty * (px - p.entry_price) - p.entry_fee)
+                      funding_paid_eur=round(p.funding_paid, 4),
+                      unrealised_pnl_eur=p.side * p.qty * (px - p.entry_price) - p.entry_fee - p.funding_paid)
     trades = eng.trades
-    port = dict(updated=now.isoformat(timespec="seconds"), timezone="Europe/Athens", paper_money_only=True, strategy=name, timeframe=tf,
+    port = dict(updated=now.isoformat(timespec="seconds"), timezone="Europe/Athens", paper_money_only=True, strategy=name, allow_shorts=bool(scfg.get("allow_shorts", False)), timeframe=tf,
                 starting_balance_eur=start, cash_eur=round(eng.cash, 2), equity_eur=round(equity, 2),
                 total_return_pct=round((equity / start - 1) * 100, 3), realised_pnl_eur=round(sum(t["pnl_eur"] for t in trades), 2),
                 closed_trades=len(trades), wins=sum(1 for t in trades if t["pnl_eur"] > 0), max_drawdown_pct=round(eng.max_dd * 100, 3),

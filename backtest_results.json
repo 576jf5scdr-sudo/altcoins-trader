@@ -69,7 +69,11 @@
       "fees_eur": 178.59623925235627,
       "open_at_end": 0,
       "long_trades": 170,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -269.29179062023786,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -33.97620823898432,
@@ -80,7 +84,11 @@
       "fees_eur": 186.46670282354188,
       "open_at_end": 0,
       "long_trades": 185,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -339.76208238984356,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -19.317608331933812,
@@ -91,7 +99,11 @@
       "fees_eur": 184.03999141700197,
       "open_at_end": 0,
       "long_trades": 166,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -193.17608331933678,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -61.82562219095489,
@@ -103,6 +115,10 @@
       "open_at_end": 0,
       "long_trades": 521,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -618.2562219095493,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "ema_cross_down": {
         "count": 383,
@@ -129,7 +145,11 @@
       "fees_eur": 157.17672237511871,
       "open_at_end": 0,
       "long_trades": 115,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -160.39445403812513,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -22.470424149483847,
@@ -140,7 +160,11 @@
       "fees_eur": 132.07849694354528,
       "open_at_end": 0,
       "long_trades": 110,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -224.70424149483907,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -15.454241375320299,
@@ -151,7 +175,11 @@
       "fees_eur": 118.15271575365685,
       "open_at_end": 0,
       "long_trades": 107,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -154.54241375320274,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -45.564595843194525,
@@ -163,6 +191,10 @@
       "open_at_end": 0,
       "long_trades": 332,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -455.64595843194445,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_trend_down": {
         "count": 170,
@@ -189,7 +221,11 @@
       "fees_eur": 105.28165881313106,
       "open_at_end": 0,
       "long_trades": 74,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -50.358766646517786,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -10.776048120532666,
@@ -200,7 +236,11 @@
       "fees_eur": 112.71079912379966,
       "open_at_end": 0,
       "long_trades": 83,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -107.76048120532707,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -13.910256074975337,
@@ -211,7 +251,11 @@
       "fees_eur": 91.79228130320041,
       "open_at_end": 0,
       "long_trades": 66,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -139.10256074975342,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -27.138471353368764,
@@ -223,6 +267,10 @@
       "open_at_end": 0,
       "long_trades": 223,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -271.3847135336889,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 7,
@@ -249,7 +297,11 @@
       "fees_eur": 145.97677854107445,
       "open_at_end": 0,
       "long_trades": 107,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -156.12874283421075,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -17.25608453599544,
@@ -260,7 +312,11 @@
       "fees_eur": 142.54763604417678,
       "open_at_end": 0,
       "long_trades": 110,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -172.56084535995407,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -11.837414840684545,
@@ -271,7 +327,11 @@
       "fees_eur": 139.85526378174828,
       "open_at_end": 0,
       "long_trades": 100,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -118.37414840684477,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -38.57011525060021,
@@ -283,6 +343,10 @@
       "open_at_end": 0,
       "long_trades": 317,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -385.70115250600253,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 11,
@@ -309,7 +373,11 @@
       "fees_eur": 105.2948276964041,
       "open_at_end": 0,
       "long_trades": 74,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -49.049259351628315,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.251320092721407,
@@ -320,7 +388,11 @@
       "fees_eur": 112.43406694155922,
       "open_at_end": 0,
       "long_trades": 83,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -112.51320092721487,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -14.269000539433618,
@@ -331,7 +403,11 @@
       "fees_eur": 91.54944839105876,
       "open_at_end": 0,
       "long_trades": 66,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -142.69000539433668,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -27.729356130972793,
@@ -343,6 +419,10 @@
       "open_at_end": 0,
       "long_trades": 223,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -277.2935613097269,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 7,
@@ -359,62 +439,154 @@
       }
      }
     },
-    "smc variant: shorts allowed (paper margin)": {
+    "smc short-only (perp short, funding)": {
      "BTC": {
-      "ret_pct": -15.183246604254885,
-      "end_eur": 848.1675339574512,
-      "win_rate": 40.397350993377486,
-      "max_dd_pct": 16.22575123175994,
-      "trades": 151,
-      "fees_eur": 202.5849119286497,
+      "ret_pct": -11.007456294218231,
+      "end_eur": 889.9254370578177,
+      "win_rate": 35.064935064935064,
+      "max_dd_pct": 11.404572462794452,
+      "trades": 77,
+      "fees_eur": 108.68454876171847,
       "open_at_end": 0,
-      "long_trades": 74,
-      "short_trades": 77
+      "long_trades": 0,
+      "short_trades": 77,
+      "funding_eur": 3.380068989243597,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -110.07456294218386,
+      "short_win_rate": 35.064935064935064
      },
      "ETH": {
-      "ret_pct": -18.763667913335922,
-      "end_eur": 812.3633208666407,
-      "win_rate": 35.333333333333336,
-      "max_dd_pct": 22.13770367151529,
-      "trades": 150,
-      "fees_eur": 190.8342892228739,
+      "ret_pct": -9.144022035241361,
+      "end_eur": 908.5597796475864,
+      "win_rate": 35.82089552238806,
+      "max_dd_pct": 11.36087752334313,
+      "trades": 67,
+      "fees_eur": 94.51826385741133,
       "open_at_end": 1,
-      "long_trades": 83,
-      "short_trades": 67
+      "long_trades": 0,
+      "short_trades": 67,
+      "funding_eur": 1.8214777225661185,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -92.5585804194199,
+      "short_win_rate": 35.82089552238806
      },
      "SOL": {
-      "ret_pct": -15.952283935771694,
-      "end_eur": 840.477160642283,
-      "win_rate": 35.46099290780142,
-      "max_dd_pct": 17.36840569822059,
-      "trades": 141,
-      "fees_eur": 190.34607789268685,
+      "ret_pct": -2.5843324830374548,
+      "end_eur": 974.1566751696255,
+      "win_rate": 42.66666666666667,
+      "max_dd_pct": 8.221139504400721,
+      "trades": 75,
+      "fees_eur": 108.60426004645096,
       "open_at_end": 0,
-      "long_trades": 66,
-      "short_trades": 75
+      "long_trades": 0,
+      "short_trades": 75,
+      "funding_eur": 2.099645871889126,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -25.84332483037853,
+      "short_win_rate": 42.66666666666667
      },
      "COMBINED": {
-      "ret_pct": -42.18738757867032,
-      "end_eur": 578.1261242132967,
+      "ret_pct": -21.27716783749133,
+      "end_eur": 787.2283216250867,
+      "win_rate": 37.89954337899543,
+      "max_dd_pct": 24.416081604926447,
+      "trades": 219,
+      "fees_eur": 281.58273697897255,
+      "open_at_end": 1,
+      "long_trades": 0,
+      "short_trades": 219,
+      "funding_eur": 6.516764036799728,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -213.7406897027776,
+      "short_win_rate": 37.89954337899543,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 7,
+        "sum": -20.03
+       },
+       "stop_loss": {
+        "count": 129,
+        "sum": -595.69
+       },
+       "take_profit": {
+        "count": 83,
+        "sum": 401.98
+       }
+      }
+     }
+    },
+    "smc long+short (perp short, funding)": {
+     "BTC": {
+      "ret_pct": -15.489011035978518,
+      "end_eur": 845.1098896402149,
+      "win_rate": 40.397350993377486,
+      "max_dd_pct": 16.370900395615884,
+      "trades": 151,
+      "fees_eur": 202.30380804369736,
+      "open_at_end": 0,
+      "long_trades": 74,
+      "short_trades": 77,
+      "funding_eur": 3.1655138662360747,
+      "long_pnl_eur": -51.03173889150323,
+      "short_pnl_eur": -103.85837146827528,
+      "short_win_rate": 35.064935064935064
+     },
+     "ETH": {
+      "ret_pct": -18.934705941105,
+      "end_eur": 810.65294058895,
+      "win_rate": 35.333333333333336,
+      "max_dd_pct": 22.221399169076836,
+      "trades": 150,
+      "fees_eur": 190.64721817825136,
+      "open_at_end": 1,
+      "long_trades": 83,
+      "short_trades": 67,
+      "funding_eur": 1.6379809604378563,
+      "long_pnl_eur": -106.2685829363031,
+      "short_pnl_eur": -84.0763215227656,
+      "short_win_rate": 35.82089552238806
+     },
+     "SOL": {
+      "ret_pct": -16.13510129179353,
+      "end_eur": 838.6489870820647,
+      "win_rate": 35.46099290780142,
+      "max_dd_pct": 17.54760725783943,
+      "trades": 141,
+      "fees_eur": 190.14233155765515,
+      "open_at_end": 0,
+      "long_trades": 66,
+      "short_trades": 75,
+      "funding_eur": 1.96619303405447,
+      "long_pnl_eur": -134.15300143328594,
+      "short_pnl_eur": -27.198011484653183,
+      "short_win_rate": 42.66666666666667
+     },
+     "COMBINED": {
+      "ret_pct": -42.64190691002718,
+      "end_eur": 573.5809308997282,
       "win_rate": 37.10407239819005,
-      "max_dd_pct": 44.1788949445307,
+      "max_dd_pct": 44.412965765158035,
       "trades": 442,
-      "fees_eur": 453.85159244400273,
+      "fees_eur": 452.38422152329497,
       "open_at_end": 1,
       "long_trades": 223,
       "short_trades": 219,
+      "funding_eur": 5.12060426108852,
+      "long_pnl_eur": -249.7613181242119,
+      "short_pnl_eur": -177.36378047756148,
+      "short_win_rate": 37.89954337899543,
       "by_reason": {
        "4h_bias_lost": {
         "count": 14,
-        "sum": -39.02
+        "sum": -39.49
        },
        "stop_loss": {
         "count": 264,
-        "sum": -995.59
+        "sum": -995.0
        },
        "take_profit": {
         "count": 164,
-        "sum": 611.93
+        "sum": 607.36
        }
       }
      }
@@ -451,7 +623,11 @@
       "fees_eur": 136.39646389325546,
       "open_at_end": 0,
       "long_trades": 125,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -234.58479442699561,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -25.44665525147908,
@@ -462,7 +638,11 @@
       "fees_eur": 136.90937802124185,
       "open_at_end": 0,
       "long_trades": 129,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -254.46655251479064,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -10.962976325243211,
@@ -473,7 +653,11 @@
       "fees_eur": 132.19426410107184,
       "open_at_end": 0,
       "long_trades": 116,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -109.62976325243116,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -49.945441784297095,
@@ -485,6 +669,10 @@
       "open_at_end": 0,
       "long_trades": 370,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -499.4544178429717,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "ema_cross_down": {
         "count": 250,
@@ -511,7 +699,11 @@
       "fees_eur": 108.12835032326376,
       "open_at_end": 0,
       "long_trades": 77,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -106.01004833675427,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.972509286293164,
@@ -522,7 +714,11 @@
       "fees_eur": 84.57074856740523,
       "open_at_end": 0,
       "long_trades": 71,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -119.72509286293185,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -11.287429388976811,
@@ -533,7 +729,11 @@
       "fees_eur": 80.21619825269414,
       "open_at_end": 0,
       "long_trades": 75,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -112.8742938897676,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -30.68993798177343,
@@ -545,6 +745,10 @@
       "open_at_end": 0,
       "long_trades": 223,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -306.89937981773346,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_trend_down": {
         "count": 109,
@@ -571,7 +775,11 @@
       "fees_eur": 78.33562232855847,
       "open_at_end": 0,
       "long_trades": 55,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -71.85887405416071,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.536273312446998,
@@ -582,7 +790,11 @@
       "fees_eur": 76.31322508778695,
       "open_at_end": 0,
       "long_trades": 56,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -115.3627331244703,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -10.126585895772976,
@@ -593,7 +805,11 @@
       "fees_eur": 67.97413952580281,
       "open_at_end": 0,
       "long_trades": 48,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -101.26585895773002,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -26.255687913094505,
@@ -605,6 +821,10 @@
       "open_at_end": 0,
       "long_trades": 159,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -262.55687913094573,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 4,
@@ -631,7 +851,11 @@
       "fees_eur": 108.70025083587666,
       "open_at_end": 0,
       "long_trades": 78,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -126.21312475131951,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -17.253053468915024,
@@ -642,7 +866,11 @@
       "fees_eur": 97.62079520105453,
       "open_at_end": 0,
       "long_trades": 74,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -172.53053468914956,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -9.57045829256894,
@@ -653,7 +881,11 @@
       "fees_eur": 95.48514115493953,
       "open_at_end": 0,
       "long_trades": 67,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -95.70458292568827,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -34.71588087028613,
@@ -665,6 +897,10 @@
       "open_at_end": 0,
       "long_trades": 219,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -347.158808702862,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 7,
@@ -691,7 +927,11 @@
       "fees_eur": 78.33562232855847,
       "open_at_end": 0,
       "long_trades": 55,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -71.85887405416071,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.981063565359062,
@@ -702,7 +942,11 @@
       "fees_eur": 76.22903386519775,
       "open_at_end": 0,
       "long_trades": 56,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -119.81063565359088,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -10.342472948531768,
@@ -713,7 +957,11 @@
       "fees_eur": 67.82265212747197,
       "open_at_end": 0,
       "long_trades": 48,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -103.42472948531815,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -26.8027221335019,
@@ -725,6 +973,10 @@
       "open_at_end": 0,
       "long_trades": 159,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -268.0272213350185,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 4,
@@ -741,62 +993,154 @@
       }
      }
     },
-    "smc variant: shorts allowed (paper margin)": {
+    "smc short-only (perp short, funding)": {
      "BTC": {
-      "ret_pct": -13.874619136292132,
-      "end_eur": 861.2538086370787,
-      "win_rate": 39.44954128440367,
-      "max_dd_pct": 16.22575123175994,
-      "trades": 109,
-      "fees_eur": 148.77105119937673,
+      "ret_pct": -7.410835273973804,
+      "end_eur": 925.891647260262,
+      "win_rate": 37.03703703703704,
+      "max_dd_pct": 9.702551686380449,
+      "trades": 54,
+      "fees_eur": 77.7581851315187,
       "open_at_end": 1,
-      "long_trades": 55,
-      "short_trades": 54
+      "long_trades": 0,
+      "short_trades": 54,
+      "funding_eur": 2.0811569375181853,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -75.37449973661468,
+      "short_win_rate": 37.03703703703704
      },
      "ETH": {
-      "ret_pct": -19.45475292249802,
-      "end_eur": 805.4524707750198,
-      "win_rate": 28.000000000000004,
-      "max_dd_pct": 22.13770367151529,
-      "trades": 100,
-      "fees_eur": 129.29408419760946,
+      "ret_pct": -9.075641331483986,
+      "end_eur": 909.2435866851602,
+      "win_rate": 25.0,
+      "max_dd_pct": 10.241646825873078,
+      "trades": 44,
+      "fees_eur": 62.714602832562356,
       "open_at_end": 0,
-      "long_trades": 56,
-      "short_trades": 44
+      "long_trades": 0,
+      "short_trades": 44,
+      "funding_eur": 1.299549263073772,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -90.75641331484539,
+      "short_win_rate": 25.0
      },
      "SOL": {
-      "ret_pct": -14.373842614623433,
-      "end_eur": 856.2615738537656,
-      "win_rate": 33.63636363636363,
-      "max_dd_pct": 15.409673189284195,
-      "trades": 110,
-      "fees_eur": 150.69198364332826,
+      "ret_pct": -4.90215448399729,
+      "end_eur": 950.9784551600271,
+      "win_rate": 38.70967741935484,
+      "max_dd_pct": 8.221139504400721,
+      "trades": 62,
+      "fees_eur": 89.95390745452357,
       "open_at_end": 0,
-      "long_trades": 48,
-      "short_trades": 62
+      "long_trades": 0,
+      "short_trades": 62,
+      "funding_eur": 1.7869413155238945,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -49.02154483997754,
+      "short_win_rate": 38.70967741935484
      },
      "COMBINED": {
-      "ret_pct": -40.67184387168212,
-      "end_eur": 593.2815612831788,
+      "ret_pct": -19.983216783632862,
+      "end_eur": 800.1678321636714,
+      "win_rate": 34.375,
+      "max_dd_pct": 24.416081604926447,
+      "trades": 160,
+      "fees_eur": 210.8669075944925,
+      "open_at_end": 1,
+      "long_trades": 0,
+      "short_trades": 160,
+      "funding_eur": 4.669652275622336,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -200.92638885094107,
+      "short_win_rate": 34.375,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 6,
+        "sum": -17.48
+       },
+       "stop_loss": {
+        "count": 99,
+        "sum": -487.06
+       },
+       "take_profit": {
+        "count": 55,
+        "sum": 303.61
+       }
+      }
+     }
+    },
+    "smc long+short (perp short, funding)": {
+     "BTC": {
+      "ret_pct": -14.064188400801891,
+      "end_eur": 859.3581159919811,
+      "win_rate": 39.44954128440367,
+      "max_dd_pct": 16.370900395615884,
+      "trades": 109,
+      "fees_eur": 148.64887347615797,
+      "open_at_end": 1,
+      "long_trades": 55,
+      "short_trades": 54,
+      "funding_eur": 1.9482005069370933,
+      "long_pnl_eur": -70.74626530118735,
+      "short_pnl_eur": -71.07078180611899,
+      "short_win_rate": 37.03703703703704
+     },
+     "ETH": {
+      "ret_pct": -19.564923855074234,
+      "end_eur": 804.3507614492577,
+      "win_rate": 28.000000000000004,
+      "max_dd_pct": 22.221399169076836,
+      "trades": 100,
+      "fees_eur": 129.21447977165303,
+      "open_at_end": 0,
+      "long_trades": 56,
+      "short_trades": 44,
+      "funding_eur": 1.174995922127256,
+      "long_pnl_eur": -113.12683589431097,
+      "short_pnl_eur": -82.52240265643017,
+      "short_win_rate": 25.0
+     },
+     "SOL": {
+      "ret_pct": -14.532319495205115,
+      "end_eur": 854.6768050479488,
+      "win_rate": 33.63636363636363,
+      "max_dd_pct": 15.527204687185819,
+      "trades": 110,
+      "fees_eur": 150.57006972832446,
+      "open_at_end": 0,
+      "long_trades": 48,
+      "short_trades": 62,
+      "funding_eur": 1.6876944878212785,
+      "long_pnl_eur": -97.57728389524785,
+      "short_pnl_eur": -47.74591105680496,
+      "short_win_rate": 38.70967741935484
+     },
+     "COMBINED": {
+      "ret_pct": -40.99275574887217,
+      "end_eur": 590.0724425112784,
       "win_rate": 33.85579937304075,
-      "max_dd_pct": 44.1788949445307,
+      "max_dd_pct": 44.412965765158035,
       "trades": 319,
-      "fees_eur": 343.31105070581117,
+      "fees_eur": 342.5947322941171,
       "open_at_end": 1,
       "long_trades": 159,
       "short_trades": 160,
+      "funding_eur": 3.7561404839390677,
+      "long_pnl_eur": -243.05642574386198,
+      "short_pnl_eur": -167.67804954483273,
+      "short_win_rate": 34.375,
       "by_reason": {
        "4h_bias_lost": {
         "count": 10,
-        "sum": -29.57
+        "sum": -30.11
        },
        "stop_loss": {
         "count": 201,
-        "sum": -825.56
+        "sum": -825.53
        },
        "take_profit": {
         "count": 108,
-        "sum": 447.6
+        "sum": 444.9
        }
       }
      }
@@ -833,7 +1177,11 @@
       "fees_eur": 55.13318137899967,
       "open_at_end": 0,
       "long_trades": 45,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -45.34401190431031,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.440872326086293,
@@ -844,7 +1192,11 @@
       "fees_eur": 66.47230244258517,
       "open_at_end": 0,
       "long_trades": 56,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -114.40872326086364,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -9.38332354550523,
@@ -855,7 +1207,11 @@
       "fees_eur": 58.22940297882971,
       "open_at_end": 0,
       "long_trades": 50,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -93.83323545505283,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -23.734462614697005,
@@ -867,6 +1223,10 @@
       "open_at_end": 0,
       "long_trades": 151,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -237.34462614696983,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "ema_cross_down": {
         "count": 133,
@@ -893,7 +1253,11 @@
       "fees_eur": 54.86456750503931,
       "open_at_end": 0,
       "long_trades": 38,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -60.833352321455266,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -11.925723178152614,
@@ -904,7 +1268,11 @@
       "fees_eur": 53.96921801468841,
       "open_at_end": 0,
       "long_trades": 39,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -119.25723178152634,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -4.6969803238074315,
@@ -915,7 +1283,11 @@
       "fees_eur": 42.76340685391977,
       "open_at_end": 0,
       "long_trades": 32,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -46.96980323807398,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -21.4610367214929,
@@ -927,6 +1299,10 @@
       "open_at_end": 0,
       "long_trades": 109,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -214.6103672149288,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_trend_down": {
         "count": 61,
@@ -953,7 +1329,11 @@
       "fees_eur": 29.032262154220074,
       "open_at_end": 0,
       "long_trades": 19,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": 23.164696409430903,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": 0.8593637419316069,
@@ -964,7 +1344,11 @@
       "fees_eur": 41.144065934013945,
       "open_at_end": 0,
       "long_trades": 27,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": 8.593637419316,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -4.209999382925867,
@@ -975,7 +1359,11 @@
       "fees_eur": 26.501877128842,
       "open_at_end": 0,
       "long_trades": 18,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -42.09999382925814,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -1.1970868197047624,
@@ -987,6 +1375,10 @@
       "open_at_end": 0,
       "long_trades": 64,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -11.970868197047656,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 3,
@@ -1013,7 +1405,11 @@
       "fees_eur": 42.66089221652461,
       "open_at_end": 0,
       "long_trades": 29,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -34.236744600194314,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": -0.0036630561096706593,
@@ -1024,7 +1420,11 @@
       "fees_eur": 54.29425824945078,
       "open_at_end": 0,
       "long_trades": 36,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -0.03663056109617724,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -2.506876077565401,
@@ -1035,7 +1435,11 @@
       "fees_eur": 49.06595985011236,
       "open_at_end": 0,
       "long_trades": 33,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -25.068760775654454,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -5.903785532674533,
@@ -1047,6 +1451,10 @@
       "open_at_end": 0,
       "long_trades": 98,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -59.037855326745095,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 4,
@@ -1073,7 +1481,11 @@
       "fees_eur": 29.046450603481617,
       "open_at_end": 0,
       "long_trades": 19,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": 24.575588846241143,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "ETH": {
       "ret_pct": 0.8290755401020533,
@@ -1084,7 +1496,11 @@
       "fees_eur": 41.1332317145706,
       "open_at_end": 0,
       "long_trades": 27,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": 8.290755401020792,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "SOL": {
       "ret_pct": -4.379473447497362,
@@ -1095,7 +1511,11 @@
       "fees_eur": 26.463808498717945,
       "open_at_end": 0,
       "long_trades": 18,
-      "short_trades": 0
+      "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -43.79473447497402,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null
      },
      "COMBINED": {
       "ret_pct": -1.2659405164777593,
@@ -1107,6 +1527,10 @@
       "open_at_end": 0,
       "long_trades": 64,
       "short_trades": 0,
+      "funding_eur": 0.0,
+      "long_pnl_eur": -12.659405164777699,
+      "short_pnl_eur": 0.0,
+      "short_win_rate": null,
       "by_reason": {
        "4h_bias_lost": {
         "count": 3,
@@ -1123,62 +1547,154 @@
       }
      }
     },
-    "smc variant: shorts allowed (paper margin)": {
+    "smc short-only (perp short, funding)": {
      "BTC": {
-      "ret_pct": -1.6480230789517214,
-      "end_eur": 983.5197692104828,
-      "win_rate": 41.46341463414634,
-      "max_dd_pct": 3.57985996834168,
-      "trades": 41,
-      "fees_eur": 61.66399886638079,
+      "ret_pct": -4.00927385321197,
+      "end_eur": 959.9072614678803,
+      "win_rate": 27.27272727272727,
+      "max_dd_pct": 5.059674376709078,
+      "trades": 22,
+      "fees_eur": 32.62075305002922,
       "open_at_end": 0,
-      "long_trades": 19,
-      "short_trades": 22
+      "long_trades": 0,
+      "short_trades": 22,
+      "funding_eur": 1.387118027432397,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -40.09273853211839,
+      "short_win_rate": 27.27272727272727
      },
      "ETH": {
-      "ret_pct": 0.8580084290971568,
-      "end_eur": 1008.5800842909716,
-      "win_rate": 50.0,
-      "max_dd_pct": 4.370236015955138,
-      "trades": 50,
-      "fees_eur": 76.4045145532292,
+      "ret_pct": -0.07520614361055111,
+      "end_eur": 999.2479385638945,
+      "win_rate": 56.52173913043478,
+      "max_dd_pct": 2.830602393700428,
+      "trades": 23,
+      "fees_eur": 34.97815270910626,
       "open_at_end": 1,
-      "long_trades": 27,
-      "short_trades": 23
+      "long_trades": 0,
+      "short_trades": 23,
+      "funding_eur": 0.5740249006266276,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -1.9820509387859797,
+      "short_win_rate": 56.52173913043478
      },
      "SOL": {
-      "ret_pct": -1.8434102023801913,
-      "end_eur": 981.5658979761981,
-      "win_rate": 41.935483870967744,
-      "max_dd_pct": 4.967867521432144,
-      "trades": 31,
-      "fees_eur": 46.31072497027739,
+      "ret_pct": 2.43730232623407,
+      "end_eur": 1024.3730232623407,
+      "win_rate": 61.53846153846154,
+      "max_dd_pct": 1.056246004990728,
+      "trades": 13,
+      "fees_eur": 19.611750918993224,
       "open_at_end": 0,
-      "long_trades": 18,
-      "short_trades": 13
+      "long_trades": 0,
+      "short_trades": 13,
+      "funding_eur": 0.3288240176930306,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": 24.373023262339736,
+      "short_win_rate": 61.53846153846154
      },
      "COMBINED": {
-      "ret_pct": -2.6817370952772035,
-      "end_eur": 973.1826290472279,
+      "ret_pct": -1.744822493193765,
+      "end_eur": 982.5517750680624,
+      "win_rate": 46.55172413793103,
+      "max_dd_pct": 6.422191083937609,
+      "trades": 58,
+      "fees_eur": 87.52392082689977,
+      "open_at_end": 1,
+      "long_trades": 0,
+      "short_trades": 58,
+      "funding_eur": 2.291470918612816,
+      "long_pnl_eur": 0.0,
+      "short_pnl_eur": -18.657662872750784,
+      "short_win_rate": 46.55172413793103,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 1,
+        "sum": -3.18
+       },
+       "stop_loss": {
+        "count": 30,
+        "sum": -135.59
+       },
+       "take_profit": {
+        "count": 27,
+        "sum": 120.11
+       }
+      }
+     }
+    },
+    "smc long+short (perp short, funding)": {
+     "BTC": {
+      "ret_pct": -1.785677823901033,
+      "end_eur": 982.1432217609897,
+      "win_rate": 41.46341463414634,
+      "max_dd_pct": 3.603757051445411,
+      "trades": 41,
+      "fees_eur": 61.61741033256203,
+      "open_at_end": 0,
+      "long_trades": 19,
+      "short_trades": 22,
+      "funding_eur": 1.4007612620589094,
+      "long_pnl_eur": 22.911208022595073,
+      "short_pnl_eur": -40.76798626160185,
+      "short_win_rate": 27.27272727272727
+     },
+     "ETH": {
+      "ret_pct": 0.7835113039914798,
+      "end_eur": 1007.8351130399149,
+      "win_rate": 50.0,
+      "max_dd_pct": 4.375562676654344,
+      "trades": 50,
+      "fees_eur": 76.37555821531217,
+      "open_at_end": 1,
+      "long_trades": 27,
+      "short_trades": 23,
+      "funding_eur": 0.5756009200220145,
+      "long_pnl_eur": 8.526445534347511,
+      "short_pnl_eur": -1.9318920809318403,
+      "short_win_rate": 56.52173913043478
+     },
+     "SOL": {
+      "ret_pct": -1.8753074695862404,
+      "end_eur": 981.2469253041376,
+      "win_rate": 41.935483870967744,
+      "max_dd_pct": 4.9761420238874585,
+      "trades": 31,
+      "fees_eur": 46.30084915795809,
+      "open_at_end": 0,
+      "long_trades": 18,
+      "short_trades": 13,
+      "funding_eur": 0.3258524679601742,
+      "long_pnl_eur": -42.79479368342749,
+      "short_pnl_eur": 24.04171898756391,
+      "short_win_rate": 61.53846153846154
+     },
+     "COMBINED": {
+      "ret_pct": -2.9210222728050406,
+      "end_eur": 970.7897772719496,
       "win_rate": 45.08196721311475,
-      "max_dd_pct": 9.182877569202324,
+      "max_dd_pct": 9.188884537805233,
       "trades": 122,
-      "fees_eur": 185.33969402707214,
+      "fees_eur": 185.08189269116184,
       "open_at_end": 1,
       "long_trades": 64,
       "short_trades": 58,
+      "funding_eur": 2.295426903881655,
+      "long_pnl_eur": -11.34807771649955,
+      "short_pnl_eur": -19.057104930184998,
+      "short_win_rate": 46.55172413793103,
       "by_reason": {
        "4h_bias_lost": {
         "count": 4,
-        "sum": -15.9
+        "sum": -15.88
        },
        "stop_loss": {
         "count": 63,
-        "sum": -286.22
+        "sum": -286.83
        },
        "take_profit": {
         "count": 55,
-        "sum": 273.94
+        "sum": 272.3
        }
       }
      }
