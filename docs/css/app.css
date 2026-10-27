@@ -78,16 +78,13 @@ button { cursor: pointer; }
 }
 .mascot {
   position: absolute;
-  left: -2%;
-  bottom: -2%;
-  width: 41%;
+  left: -1%;
+  bottom: 0;
+  width: 43%;
   height: auto;
   z-index: 1;
   pointer-events: none;
   overflow: visible;
-}
-@media (prefers-reduced-motion: reduce) {
-  .mascot .spark { stroke-dashoffset: 0; }
 }
 .hero-copy { position: relative; z-index: 2; margin-left: 40%; padding: 16px 14px 16px 4px; }
 .hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
@@ -351,7 +348,7 @@ tr.live td { font-weight: 750; background: #FFF8F4; }
 @media (max-width: 360px) {
   .hero h1 { font-size: 20px; line-height: 24px; }
   .hero-copy { margin-left: 36%; }
-  .mascot { width: 38%; left: -5%; }
+  .mascot { width: 42%; left: -6%; }
   .tiles { gap: 6px; }
   .tile .pct { font-size: 16px; }
   .dock button { font-size: 11px; padding: 10px 8px; }
