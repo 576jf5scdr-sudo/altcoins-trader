@@ -25,17 +25,23 @@
   ];
   var COIN_STRATS = [STRATS[2], STRATS[1], STRATS[0]];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var MASCOT = '<svg class="mascot" viewBox="0 0 280 260" aria-hidden="true">' +
-    '<defs><radialGradient id="pebble" cx="38%" cy="32%" r="75%">' +
-    '<stop offset="0%" stop-color="#ffffff"/><stop offset="58%" stop-color="#f6f3f0"/><stop offset="100%" stop-color="#d4cdc6"/>' +
-    '</radialGradient></defs>' +
-    '<path fill="url(#pebble)" d="M78 236 C 28 214 22 150 52 98 C 78 52 132 30 186 48 C 246 68 268 124 256 176 C 244 228 176 258 112 248 C 96 244 86 240 78 236 Z"/>' +
-    '<ellipse cx="176" cy="156" rx="18" ry="11" fill="#ffb088" opacity="0.55"/>' +
-    '<ellipse cx="118" cy="124" rx="9" ry="11" fill="#1c1917"/>' +
-    '<ellipse cx="168" cy="116" rx="9" ry="11" fill="#1c1917"/>' +
-    '<circle cx="121" cy="120" r="3" fill="#fff"/><circle cx="171" cy="112" r="3" fill="#fff"/>' +
-    '<path d="M124 162 Q 146 178 170 158" fill="none" stroke="#1c1917" stroke-width="5" stroke-linecap="round"/>' +
-    '</svg>';
+  var BOARD = { x: 138, y: 78, w: 104, h: 74 };
+  var EYES = [
+    { id: "pupil-l", cx: 56, cy: 114 },
+    { id: "pupil-r", cx: 86, cy: 107 }
+  ];
+  var MOUTH = {
+    wait: "M52 136 Q72 148 92 134",
+    trade: "M56 138 Q74 142 92 136",
+    profit: "M50 132 Q74 154 98 130",
+    loss: "M50 150 Q74 128 98 150"
+  };
+  var BROW = {
+    wait: ["M44 96 Q56 88 68 96", "M74 90 Q88 82 102 92"],
+    trade: ["M44 102 Q56 100 68 102", "M74 96 Q88 94 102 98"],
+    profit: ["M44 94 Q56 86 68 94", "M74 88 Q88 80 102 90"],
+    loss: ["M46 100 Q56 108 68 100", "M74 94 Q88 104 102 96"]
+  };
 
   var state = { data: null, period: "FULL", backtestOpen: false, failedRefresh: false, sample: false, pinScroll: true };
 
@@ -458,6 +464,235 @@
     return lines;
   }
 
+  function watchSeries(D) {
+    var eq = (Array.isArray(D.equity_curve) ? D.equity_curve : []).map(function (p) {
+      return num(p.equity_eur);
+    }).filter(function (v) { return v != null; });
+    if (eq.length >= 2) return eq.slice(-36);
+    var prices = ORDER.map(function (c) { return num((D.per_coin[c] || {}).price_eur); }).filter(function (v) { return v != null; });
+    return prices.length >= 2 ? prices : [1, 1];
+  }
+
+  function moodOf(D) {
+    var pos = Array.isArray(D.open_positions) ? D.open_positions : [];
+    var unreal = 0;
+    var known = false;
+    pos.forEach(function (p) {
+      var u = num(p.unrealised_pnl_eur);
+      if (u != null) { unreal += u; known = true; }
+    });
+    var pnl = num((D.account || {}).pnl_eur) || 0;
+    if (pos.length && known && unreal < -0.05) return "loss";
+    if (pos.length && known && unreal > 0.05) return "profit";
+    if (pos.length) return "trade";
+    if (pnl > 0.05) return "profit";
+    if (pnl < -0.05) return "loss";
+    return "wait";
+  }
+
+  function linePoints(values) {
+    var padX = 12, padY = 12;
+    var x0 = BOARD.x + padX;
+    var y0 = BOARD.y + padY;
+    var w = BOARD.w - padX * 2;
+    var ht = BOARD.h - padY * 2;
+    var lo = Math.min.apply(null, values);
+    var hi = Math.max.apply(null, values);
+    var flat = hi - lo < 1e-6;
+    return values.map(function (v, i) {
+      var x = values.length === 1 ? x0 + w / 2 : x0 + (i / (values.length - 1)) * w;
+      var y = flat ? y0 + ht * 0.55 : y0 + ht - ((v - lo) / (hi - lo)) * ht;
+      return [x, y];
+    });
+  }
+
+  function pathFrom(pts) {
+    return pts.map(function (p, i) { return (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join("");
+  }
+
+  function sparkColor(values) {
+    var a = values[0], b = values[values.length - 1];
+    if (Math.abs(b - a) < 0.05) return "#FFB067";
+    return b >= a ? "#3DDC84" : "#FF5A5F";
+  }
+
+  function stageMarkup() {
+    return '<svg class="mascot" viewBox="0 0 250 196" aria-hidden="true">' +
+      '<defs><radialGradient id="pebble" cx="32%" cy="28%" r="72%">' +
+      '<stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#f6f3f0"/><stop offset="100%" stop-color="#d3ccc5"/>' +
+      '</radialGradient></defs>' +
+      '<rect class="board" x="138" y="78" width="104" height="74" rx="14" fill="#120e0b" stroke="#4a2c18" stroke-width="2"/>' +
+      '<path class="spark-area" fill="#3DDC84" opacity="0"/>' +
+      '<path class="spark" fill="none" stroke="#FFB067" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d=""/>' +
+      '<circle class="tip" r="3.2" fill="#fff" opacity="0"/>' +
+      '<g class="guy">' +
+      '<ellipse cx="78" cy="176" rx="48" ry="7" fill="#000" opacity="0.28"/>' +
+      '<ellipse cx="58" cy="166" rx="13" ry="7" fill="#efeae5"/>' +
+      '<ellipse cx="98" cy="164" rx="13" ry="7" fill="#e6e0da"/>' +
+      '<path d="M48 132 C 30 142 24 158 34 166" fill="none" stroke="#f4f0eb" stroke-width="11" stroke-linecap="round"/>' +
+      '<circle cx="34" cy="168" r="7.5" fill="#fff" stroke="#e4ddd6" stroke-width="1"/>' +
+      '<path fill="url(#pebble)" d="M34 154 C 26 128 32 96 56 80 C 76 66 108 66 124 84 C 140 102 144 132 132 154 C 122 172 96 180 68 178 C 46 176 36 166 34 154 Z"/>' +
+      '<ellipse cx="104" cy="128" rx="11" ry="6.5" fill="#ffb088" opacity="0.5"/>' +
+      '<path class="brow" d="M44 96 Q56 88 68 96" fill="none" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>' +
+      '<path class="brow" d="M74 90 Q88 82 102 92" fill="none" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>' +
+      '<ellipse class="eye" cx="56" cy="114" rx="9" ry="11" fill="#1c1917"/>' +
+      '<ellipse class="eye" cx="86" cy="107" rx="9" ry="11" fill="#1c1917"/>' +
+      '<circle id="pupil-l" cx="58" cy="114" r="3.2" fill="#fff"/>' +
+      '<circle id="pupil-r" cx="88" cy="107" r="3.2" fill="#fff"/>' +
+      '<ellipse class="lid" data-cx="56" data-cy="114" cx="56" cy="114" rx="10" ry="12" fill="#f6f3f0" transform="translate(56 114) scale(1 0.05) translate(-56 -114)"/>' +
+      '<ellipse class="lid" data-cx="86" data-cy="107" cx="86" cy="107" rx="10" ry="12" fill="#f6f3f0" transform="translate(86 107) scale(1 0.05) translate(-86 -107)"/>' +
+      '<path class="mouth" d="M52 136 Q72 148 92 134" fill="none" stroke="#1c1917" stroke-width="3.4" stroke-linecap="round"/>' +
+      '<g class="sweat" opacity="0"><path d="M116 58c0-18 18-20 18-3 0 13-18 18-18 3z" fill="#9ad8ff"/><ellipse cx="125" cy="76" rx="6" ry="3.6" fill="#9ad8ff"/></g>' +
+      '</g>' +
+      '<g class="reach">' +
+      '<path class="arm" fill="none" stroke="#f7f4f0" stroke-width="11" stroke-linecap="round"/>' +
+      '<circle class="hand" r="8" fill="#fff" stroke="#e4ddd6" stroke-width="1"/>' +
+      '</g></svg>';
+  }
+
+  function stopWatch() {
+    state.watchToken = (state.watchToken || 0) + 1;
+    if (state.frame) cancelAnimationFrame(state.frame);
+    state.frame = 0;
+  }
+
+  function startWatch(D) {
+    var svg = document.querySelector(".hero .mascot");
+    if (!svg) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var token = state.watchToken || 0;
+    var mood = moodOf(D);
+    var values = watchSeries(D);
+    var pts = linePoints(values);
+    var col = sparkColor(values);
+    svg.setAttribute("class", "mascot mood-" + mood);
+    var spark = svg.querySelector(".spark");
+    var area = svg.querySelector(".spark-area");
+    var tip = svg.querySelector(".tip");
+    var mouth = svg.querySelector(".mouth");
+    var guy = svg.querySelector(".guy");
+    var sweat = svg.querySelector(".sweat");
+    var arm = svg.querySelector(".arm");
+    var hand = svg.querySelector(".hand");
+    var brows = svg.querySelectorAll(".brow");
+    var lids = svg.querySelectorAll(".lid");
+    var eyes = svg.querySelectorAll(".eye");
+    var pupils = EYES.map(function (eye) { return { eye: eye, el: svg.querySelector("#" + eye.id) }; });
+    spark.setAttribute("d", pathFrom(pts));
+    spark.setAttribute("stroke", col);
+    var sparkLen = spark.getTotalLength();
+    if (!sparkLen || !isFinite(sparkLen)) sparkLen = 1;
+    spark.setAttribute("stroke-dasharray", sparkLen.toFixed(2));
+    area.setAttribute("d", pathFrom(pts) + " L" + pts[pts.length - 1][0].toFixed(1) + " " + (BOARD.y + BOARD.h - 12) + " L" + pts[0][0].toFixed(1) + " " + (BOARD.y + BOARD.h - 12) + " Z");
+    area.setAttribute("fill", col);
+    tip.setAttribute("fill", col);
+    if (mouth) mouth.setAttribute("d", MOUTH[mood]);
+    if (brows.length === 2) {
+      brows[0].setAttribute("d", BROW[mood][0]);
+      brows[1].setAttribute("d", BROW[mood][1]);
+    }
+    var ry = mood === "wait" ? 12 : mood === "trade" ? 8 : mood === "loss" ? 10.5 : 10.5;
+    eyes.forEach(function (el) { el.setAttribute("ry", ry); });
+
+    function pointAt(p) {
+      if (!pts.length) return [BOARD.x + BOARD.w * 0.5, BOARD.y + BOARD.h * 0.5];
+      var idx = Math.max(0, Math.min(1, p)) * (pts.length - 1);
+      var i = Math.max(0, Math.min(pts.length - 1, Math.floor(idx)));
+      var f = Math.max(0, idx - i);
+      var a = pts[i];
+      var b = pts[Math.min(pts.length - 1, i + 1)] || a;
+      return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+    }
+    function look(x, y) {
+      var mid = BOARD.y + BOARD.h * 0.5;
+      var along = (y - mid) / (BOARD.h * 0.42);
+      if (along > 1) along = 1;
+      if (along < -1) along = -1;
+      var roomY = mood === "trade" ? 3.2 : 6.2;
+      var bias = mood === "loss" ? 1.4 : mood === "wait" ? -1.1 : 0;
+      pupils.forEach(function (p) {
+        if (!p.el) return;
+        var ang = Math.atan2(y - p.eye.cy, x - p.eye.cx);
+        var ox = Math.cos(ang) * 5.2;
+        var oy = Math.sin(ang) * 1.4 + along * roomY + bias;
+        var nx = ox / 5.2;
+        var ny = oy / roomY;
+        var n = Math.hypot(nx, ny);
+        if (n > 1) { ox /= n; oy /= n; }
+        p.el.setAttribute("cx", (p.eye.cx + ox).toFixed(2));
+        p.el.setAttribute("cy", (p.eye.cy + oy).toFixed(2));
+      });
+    }
+    function world(x, y, bob, breath, lean) {
+      var lx = x - 78;
+      var ly = (y - 160) * breath;
+      var rad = lean * Math.PI / 180;
+      var c = Math.cos(rad);
+      var s = Math.sin(rad);
+      return [lx * c + ly * s + 78, -lx * s + ly * c + 160 + bob];
+    }
+    function pose(t, draw) {
+      var bob = Math.sin(t * 1.65) * (mood === "profit" ? 1.05 : 1.45);
+      if (mood === "profit") bob -= Math.pow(Math.sin(t * 2.45) * Math.sin(t * 2.45), 0.75) * 5.2;
+      var breath = 1 + Math.sin(t * 1.8) * (reduce ? 0 : 0.02);
+      var lean = mood === "trade" ? 12 : mood === "wait" ? 4 : mood === "loss" ? 7 : 6;
+      guy.setAttribute("transform", "translate(0 " + bob.toFixed(2) + ") translate(78 160) rotate(" + lean + ") scale(1 " + breath.toFixed(4) + ") translate(-78 -160)");
+      var shoulder = world(108, 124, bob, breath, lean);
+      var hx = 146;
+      var hy = 114;
+      var cx = (shoulder[0] + hx) * 0.5 + 2;
+      var cy = Math.min(shoulder[1], hy) - 10;
+      arm.setAttribute("d", "M" + shoulder[0].toFixed(1) + " " + shoulder[1].toFixed(1) + " Q" + cx.toFixed(1) + " " + cy.toFixed(1) + " " + hx + " " + hy);
+      hand.setAttribute("cx", String(hx));
+      hand.setAttribute("cy", String(hy));
+      var lidK = 0.05;
+      var blinkT = t % 4.7;
+      if (!reduce && blinkT > 4.4) {
+        var u = (blinkT - 4.4) / 0.26;
+        var tri = u < 0.5 ? u * 2 : Math.max(0, 1 - (u - 0.5) * 2);
+        lidK = 0.05 + tri * 0.95;
+      }
+      lids.forEach(function (el) {
+        var cx = +el.getAttribute("data-cx");
+        var cy = +el.getAttribute("data-cy");
+        el.setAttribute("transform", "translate(" + cx + " " + cy + ") scale(1 " + lidK.toFixed(3) + ") translate(" + (-cx) + " " + (-cy) + ")");
+      });
+      if (mood === "loss") {
+        var drip = reduce ? 0.4 : (t % 2.5) / 2.5;
+        var op = drip < 0.12 ? drip / 0.12 : drip > 0.8 ? Math.max(0, 1 - (drip - 0.8) / 0.2) : 1;
+        sweat.setAttribute("opacity", op.toFixed(2));
+        sweat.setAttribute("transform", "translate(0 " + ((reduce ? 6 : drip * 16)).toFixed(2) + ")");
+      } else {
+        sweat.setAttribute("opacity", "0");
+      }
+      var e = reduce ? 1 : Math.max(0, Math.min(1, draw));
+      e = 1 - Math.pow(1 - e, 3);
+      spark.setAttribute("stroke-dashoffset", ((1 - e) * sparkLen).toFixed(2));
+      area.setAttribute("opacity", (0.2 * e).toFixed(3));
+      var xy = pointAt(e);
+      tip.setAttribute("cx", xy[0].toFixed(2));
+      tip.setAttribute("cy", xy[1].toFixed(2));
+      tip.setAttribute("opacity", e > 0.04 ? "1" : "0");
+      look(xy[0], xy[1]);
+    }
+    var t0 = performance.now();
+    function frame(now) {
+      if (token !== state.watchToken) return;
+      if (document.hidden) {
+        state.frame = requestAnimationFrame(frame);
+        return;
+      }
+      var elapsed = now - t0;
+      pose(elapsed / 1000, (elapsed - 320) / 2300);
+      state.frame = requestAnimationFrame(frame);
+    }
+    if (reduce) pose(0, 1);
+    else {
+      pose(0, 0);
+      state.frame = requestAnimationFrame(frame);
+    }
+  }
+
   function hero(D) {
     var a = D.account || {};
     var pnl = num(a.pnl_eur);
@@ -471,7 +706,7 @@
     var goal = pnlPct == null ? 0 : Math.max(0, Math.min(100, (pnlPct / GOAL) * 100));
     var strat = String(D.strategy || "SMC").toUpperCase();
     var box = h("section", { class: "hero", id: "home" });
-    box.insertAdjacentHTML("beforeend", MASCOT);
+    box.insertAdjacentHTML("beforeend", stageMarkup());
     box.appendChild(h("div", { class: "hero-copy" }, [
       h("div", { class: "hero-top" }, [
         h("h1", { text: "Altcoins Trader" }),
@@ -494,6 +729,7 @@
   function render() {
     var D = state.data;
     if (!D) return;
+    stopWatch();
     var top = state.pinScroll ? window.scrollY : null;
     var a = D.account || {};
     var app = document.getElementById("app");
@@ -561,6 +797,7 @@
       h("a", { class: "chat", href: CHAT, text: "Chat" }),
       h("button", { type: "button", "data-tab": "backtest", onclick: function () { go("backtest"); }, text: "Backtest" })
     ]));
+    startWatch(D);
     requestAnimationFrame(function () {
       if (top != null) window.scrollTo(0, top);
       markNav();
@@ -598,6 +835,7 @@
   }
 
   function showError(err) {
+    stopWatch();
     var app = document.getElementById("app");
     app.textContent = "";
     app.appendChild(h("div", { class: "err" }, [
