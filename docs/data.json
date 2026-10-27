@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-10-27 21:51",
+ "last_updated_athens": "2026-10-27 22:06",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-10-27T21:31:48+02:00"
+  "bot_last_check_athens": "2026-10-27T22:00:39+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -155,6 +155,14 @@
   {
    "time_athens": "2026-10-27T21:31:48+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T21:51:47+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-27T22:00:39+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -164,7 +172,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 72315.3
+   "price_eur": 72461.34
   },
   "ETH": {
    "trades": 0,
@@ -172,7 +180,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2099.96
+   "price_eur": 2105.0
   },
   "SOL": {
    "trades": 0,
@@ -180,40 +188,45 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 90.61
+   "price_eur": 90.71
   }
  },
  "h4_bias": {
   "BTC": {
-   "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-10-27 18:00",
-   "close": 72150.37,
-   "ema20": 71801.77,
-   "ema50": 72329.85,
+   "bias": "NEUTRAL",
+   "last_closed_4h_close_athens": "2026-10-27 22:00",
+   "close": 72456.94,
+   "ema20": 71864.17,
+   "ema50": 72334.83,
    "source": "binance"
   },
   "ETH": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-10-27 18:00",
-   "close": 2102.77,
-   "ema20": 2088.97,
-   "ema50": 2117.88,
+   "last_closed_4h_close_athens": "2026-10-27 22:00",
+   "close": 2105.22,
+   "ema20": 2090.52,
+   "ema50": 2117.38,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-10-27 18:00",
-   "close": 90.44,
-   "ema20": 90.5,
-   "ema50": 91.78,
+   "last_closed_4h_close_athens": "2026-10-27 22:00",
+   "close": 90.72,
+   "ema20": 90.53,
+   "ema50": 91.74,
    "source": "binance"
   }
  },
  "activity": [
   {
-   "t": "10-27 21:51",
+   "t": "10-27 22:00",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
+  },
+  {
+   "t": "10-27 22:00",
+   "text": "BTC 4h bias neutral. Waiting",
+   "kind": "wait"
   },
   {
    "t": "10-27 18:15",
