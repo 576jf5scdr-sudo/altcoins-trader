@@ -1,0 +1,1189 @@
+{
+ "info": {
+  "data_start": "2024-10-27 11:00:00+00:00",
+  "eval_start": "2024-11-10 11:00:00+00:00",
+  "split": "2026-03-26 15:48:00+00:00",
+  "end": "2026-10-27 11:00:00+00:00",
+  "candles": {
+   "1h": {
+    "BTC": 17520,
+    "ETH": 17520,
+    "SOL": 17520
+   },
+   "15m": {
+    "BTC": 70080,
+    "ETH": 70080,
+    "SOL": 70080
+   }
+  },
+  "gaps_15m": {
+   "BTC": 0,
+   "ETH": 0,
+   "SOL": 0
+  },
+  "fee_pct": 0.25,
+  "slippage_pct": 0.05,
+  "prices": {
+   "BTC": [
+    62181.34,
+    71584.91
+   ],
+   "ETH": [
+    2287.62,
+    2073.58
+   ],
+   "SOL": [
+    160.99,
+    89.58
+   ]
+  }
+ },
+ "periods": {
+  "FULL": {
+   "buy_hold": {
+    "BTC": {
+     "ret_pct": -4.0771202113688005,
+     "max_dd_pct": 52.35736357733044
+    },
+    "ETH": {
+     "ret_pct": -30.969699311412533,
+     "max_dd_pct": 68.39794368054427
+    },
+    "SOL": {
+     "ret_pct": -53.51632476248449,
+     "max_dd_pct": 81.03262818214414
+    },
+    "COMBINED": {
+     "ret_pct": -29.521048095088602,
+     "max_dd_pct": 63.61352713688859
+    }
+   },
+   "strategies": {
+    "ema_cross (old, 1h)": {
+     "BTC": {
+      "ret_pct": -26.92917906202379,
+      "end_eur": 730.7082093797621,
+      "win_rate": 20.0,
+      "max_dd_pct": 28.312723580479656,
+      "trades": 170,
+      "fees_eur": 178.59623925235627,
+      "open_at_end": 0,
+      "long_trades": 170,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -33.97620823898432,
+      "end_eur": 660.2379176101568,
+      "win_rate": 20.0,
+      "max_dd_pct": 35.108585818719426,
+      "trades": 185,
+      "fees_eur": 186.46670282354188,
+      "open_at_end": 0,
+      "long_trades": 185,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -19.317608331933812,
+      "end_eur": 806.8239166806619,
+      "win_rate": 25.301204819277107,
+      "max_dd_pct": 21.277727839843617,
+      "trades": 166,
+      "fees_eur": 184.03999141700197,
+      "open_at_end": 0,
+      "long_trades": 166,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -61.82562219095489,
+      "end_eur": 381.7437780904512,
+      "win_rate": 21.689059500959694,
+      "max_dd_pct": 62.65787308527083,
+      "trades": 521,
+      "fees_eur": 397.99480871063696,
+      "open_at_end": 0,
+      "long_trades": 521,
+      "short_trades": 0,
+      "by_reason": {
+       "ema_cross_down": {
+        "count": 383,
+        "sum": -925.47
+       },
+       "stop_loss": {
+        "count": 67,
+        "sum": -525.64
+       },
+       "take_profit": {
+        "count": 71,
+        "sum": 832.85
+       }
+      }
+     }
+    },
+    "mtf_ema (4h trend + 1h pullback)": {
+     "BTC": {
+      "ret_pct": -16.039445403812593,
+      "end_eur": 839.6055459618741,
+      "win_rate": 27.82608695652174,
+      "max_dd_pct": 20.762844793961317,
+      "trades": 115,
+      "fees_eur": 157.17672237511871,
+      "open_at_end": 0,
+      "long_trades": 115,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -22.470424149483847,
+      "end_eur": 775.2957585051615,
+      "win_rate": 22.727272727272727,
+      "max_dd_pct": 26.234684907364077,
+      "trades": 110,
+      "fees_eur": 132.07849694354528,
+      "open_at_end": 0,
+      "long_trades": 110,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -15.454241375320299,
+      "end_eur": 845.4575862467971,
+      "win_rate": 24.299065420560748,
+      "max_dd_pct": 20.55190200825488,
+      "trades": 107,
+      "fees_eur": 118.15271575365685,
+      "open_at_end": 0,
+      "long_trades": 107,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -45.564595843194525,
+      "end_eur": 544.3540415680548,
+      "win_rate": 25.0,
+      "max_dd_pct": 51.492754993126496,
+      "trades": 332,
+      "fees_eur": 348.1210379943545,
+      "open_at_end": 0,
+      "long_trades": 332,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_trend_down": {
+        "count": 170,
+        "sum": -628.69
+       },
+       "stop_loss": {
+        "count": 87,
+        "sum": -715.04
+       },
+       "take_profit": {
+        "count": 75,
+        "sum": 888.08
+       }
+      }
+     }
+    },
+    "smc (4h bias, 1h struct, 15m entry)": {
+     "BTC": {
+      "ret_pct": -5.035876664651829,
+      "end_eur": 949.6412333534818,
+      "win_rate": 45.94594594594595,
+      "max_dd_pct": 8.523980225995768,
+      "trades": 74,
+      "fees_eur": 105.28165881313106,
+      "open_at_end": 0,
+      "long_trades": 74,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -10.776048120532666,
+      "end_eur": 892.2395187946734,
+      "win_rate": 34.93975903614458,
+      "max_dd_pct": 14.092878661793245,
+      "trades": 83,
+      "fees_eur": 112.71079912379966,
+      "open_at_end": 0,
+      "long_trades": 83,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -13.910256074975337,
+      "end_eur": 860.8974392502466,
+      "win_rate": 27.27272727272727,
+      "max_dd_pct": 14.654777947072017,
+      "trades": 66,
+      "fees_eur": 91.79228130320041,
+      "open_at_end": 0,
+      "long_trades": 66,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -27.138471353368764,
+      "end_eur": 728.6152864663123,
+      "win_rate": 36.32286995515695,
+      "max_dd_pct": 28.66788232306791,
+      "trades": 223,
+      "fees_eur": 265.63113274666404,
+      "open_at_end": 0,
+      "long_trades": 223,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 7,
+        "sum": -26.52
+       },
+       "stop_loss": {
+        "count": 135,
+        "sum": -586.29
+       },
+       "take_profit": {
+        "count": 81,
+        "sum": 341.43
+       }
+      }
+     }
+    },
+    "smc variant: no sweep required": {
+     "BTC": {
+      "ret_pct": -15.612874283421075,
+      "end_eur": 843.8712571657893,
+      "win_rate": 33.64485981308411,
+      "max_dd_pct": 17.13080813435454,
+      "trades": 107,
+      "fees_eur": 145.97677854107445,
+      "open_at_end": 0,
+      "long_trades": 107,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -17.25608453599544,
+      "end_eur": 827.4391546400456,
+      "win_rate": 33.63636363636363,
+      "max_dd_pct": 19.00162741315827,
+      "trades": 110,
+      "fees_eur": 142.54763604417678,
+      "open_at_end": 0,
+      "long_trades": 110,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -11.837414840684545,
+      "end_eur": 881.6258515931545,
+      "win_rate": 37.0,
+      "max_dd_pct": 12.742319888147252,
+      "trades": 100,
+      "fees_eur": 139.85526378174828,
+      "open_at_end": 0,
+      "long_trades": 100,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -38.57011525060021,
+      "end_eur": 614.2988474939979,
+      "win_rate": 34.70031545741325,
+      "max_dd_pct": 40.19704728029864,
+      "trades": 317,
+      "fees_eur": 347.7963518821994,
+      "open_at_end": 0,
+      "long_trades": 317,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 11,
+        "sum": -40.39
+       },
+       "stop_loss": {
+        "count": 196,
+        "sum": -793.91
+       },
+       "take_profit": {
+        "count": 110,
+        "sum": 448.6
+       }
+      }
+     }
+    },
+    "smc variant: target = next 1h swing high": {
+     "BTC": {
+      "ret_pct": -4.904925935162884,
+      "end_eur": 950.9507406483712,
+      "win_rate": 45.94594594594595,
+      "max_dd_pct": 8.523980225995768,
+      "trades": 74,
+      "fees_eur": 105.2948276964041,
+      "open_at_end": 0,
+      "long_trades": 74,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.251320092721407,
+      "end_eur": 887.486799072786,
+      "win_rate": 33.734939759036145,
+      "max_dd_pct": 14.524814458053845,
+      "trades": 83,
+      "fees_eur": 112.43406694155922,
+      "open_at_end": 0,
+      "long_trades": 83,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -14.269000539433618,
+      "end_eur": 857.3099946056639,
+      "win_rate": 27.27272727272727,
+      "max_dd_pct": 15.010419915366342,
+      "trades": 66,
+      "fees_eur": 91.54944839105876,
+      "open_at_end": 0,
+      "long_trades": 66,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -27.729356130972793,
+      "end_eur": 722.7064386902721,
+      "win_rate": 35.874439461883405,
+      "max_dd_pct": 29.24636404411408,
+      "trades": 223,
+      "fees_eur": 264.48103620606435,
+      "open_at_end": 0,
+      "long_trades": 223,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 7,
+        "sum": -26.43
+       },
+       "stop_loss": {
+        "count": 136,
+        "sum": -586.69
+       },
+       "take_profit": {
+        "count": 80,
+        "sum": 335.83
+       }
+      }
+     }
+    },
+    "smc variant: shorts allowed (paper margin)": {
+     "BTC": {
+      "ret_pct": -15.183246604254885,
+      "end_eur": 848.1675339574512,
+      "win_rate": 40.397350993377486,
+      "max_dd_pct": 16.22575123175994,
+      "trades": 151,
+      "fees_eur": 202.5849119286497,
+      "open_at_end": 0,
+      "long_trades": 74,
+      "short_trades": 77
+     },
+     "ETH": {
+      "ret_pct": -18.763667913335922,
+      "end_eur": 812.3633208666407,
+      "win_rate": 35.333333333333336,
+      "max_dd_pct": 22.13770367151529,
+      "trades": 150,
+      "fees_eur": 190.8342892228739,
+      "open_at_end": 1,
+      "long_trades": 83,
+      "short_trades": 67
+     },
+     "SOL": {
+      "ret_pct": -15.952283935771694,
+      "end_eur": 840.477160642283,
+      "win_rate": 35.46099290780142,
+      "max_dd_pct": 17.36840569822059,
+      "trades": 141,
+      "fees_eur": 190.34607789268685,
+      "open_at_end": 0,
+      "long_trades": 66,
+      "short_trades": 75
+     },
+     "COMBINED": {
+      "ret_pct": -42.18738757867032,
+      "end_eur": 578.1261242132967,
+      "win_rate": 37.10407239819005,
+      "max_dd_pct": 44.1788949445307,
+      "trades": 442,
+      "fees_eur": 453.85159244400273,
+      "open_at_end": 1,
+      "long_trades": 223,
+      "short_trades": 219,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 14,
+        "sum": -39.02
+       },
+       "stop_loss": {
+        "count": 264,
+        "sum": -995.59
+       },
+       "take_profit": {
+        "count": 164,
+        "sum": 611.93
+       }
+      }
+     }
+    }
+   }
+  },
+  "IN-SAMPLE (first 70%)": {
+   "buy_hold": {
+    "BTC": {
+     "ret_pct": -19.808304676678212,
+     "max_dd_pct": 50.2012005792039
+    },
+    "ETH": {
+     "ret_pct": -40.29300779762759,
+     "max_dd_pct": 66.70934599745476
+    },
+    "SOL": {
+     "ret_pct": -60.64610482235794,
+     "max_dd_pct": 77.01685191825027
+    },
+    "COMBINED": {
+     "ret_pct": -40.24913909888791,
+     "max_dd_pct": 59.69032294483125
+    }
+   },
+   "strategies": {
+    "ema_cross (old, 1h)": {
+     "BTC": {
+      "ret_pct": -23.45847944269954,
+      "end_eur": 765.4152055730045,
+      "win_rate": 16.8,
+      "max_dd_pct": 27.589813440265743,
+      "trades": 125,
+      "fees_eur": 136.39646389325546,
+      "open_at_end": 0,
+      "long_trades": 125,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -25.44665525147908,
+      "end_eur": 745.5334474852092,
+      "win_rate": 20.930232558139537,
+      "max_dd_pct": 29.265594268367906,
+      "trades": 129,
+      "fees_eur": 136.90937802124185,
+      "open_at_end": 0,
+      "long_trades": 129,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -10.962976325243211,
+      "end_eur": 890.3702367475679,
+      "win_rate": 25.0,
+      "max_dd_pct": 16.74962306011979,
+      "trades": 116,
+      "fees_eur": 132.19426410107184,
+      "open_at_end": 0,
+      "long_trades": 116,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -49.945441784297095,
+      "end_eur": 500.545582157029,
+      "win_rate": 20.81081081081081,
+      "max_dd_pct": 55.609665643267114,
+      "trades": 370,
+      "fees_eur": 315.8031756073222,
+      "open_at_end": 0,
+      "long_trades": 370,
+      "short_trades": 0,
+      "by_reason": {
+       "ema_cross_down": {
+        "count": 250,
+        "sum": -744.17
+       },
+       "stop_loss": {
+        "count": 61,
+        "sum": -494.46
+       },
+       "take_profit": {
+        "count": 59,
+        "sum": 739.17
+       }
+      }
+     }
+    },
+    "mtf_ema (4h trend + 1h pullback)": {
+     "BTC": {
+      "ret_pct": -10.601004833675454,
+      "end_eur": 893.9899516632455,
+      "win_rate": 27.27272727272727,
+      "max_dd_pct": 15.80723045319155,
+      "trades": 77,
+      "fees_eur": 108.12835032326376,
+      "open_at_end": 0,
+      "long_trades": 77,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.972509286293164,
+      "end_eur": 880.2749071370683,
+      "win_rate": 25.352112676056336,
+      "max_dd_pct": 18.744385709361218,
+      "trades": 71,
+      "fees_eur": 84.57074856740523,
+      "open_at_end": 0,
+      "long_trades": 71,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -11.287429388976811,
+      "end_eur": 887.1257061102319,
+      "win_rate": 24.0,
+      "max_dd_pct": 15.038868279880216,
+      "trades": 75,
+      "fees_eur": 80.21619825269414,
+      "open_at_end": 0,
+      "long_trades": 75,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -30.68993798177343,
+      "end_eur": 693.1006201822657,
+      "win_rate": 25.56053811659193,
+      "max_dd_pct": 39.23089427217514,
+      "trades": 223,
+      "fees_eur": 251.23984068373687,
+      "open_at_end": 0,
+      "long_trades": 223,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_trend_down": {
+        "count": 109,
+        "sum": -444.0
+       },
+       "stop_loss": {
+        "count": 62,
+        "sum": -568.65
+       },
+       "take_profit": {
+        "count": 52,
+        "sum": 705.75
+       }
+      }
+     }
+    },
+    "smc (4h bias, 1h struct, 15m entry)": {
+     "BTC": {
+      "ret_pct": -7.185887405416147,
+      "end_eur": 928.1411259458386,
+      "win_rate": 41.81818181818181,
+      "max_dd_pct": 8.523980225995768,
+      "trades": 55,
+      "fees_eur": 78.33562232855847,
+      "open_at_end": 0,
+      "long_trades": 55,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.536273312446998,
+      "end_eur": 884.63726687553,
+      "win_rate": 30.357142857142854,
+      "max_dd_pct": 14.092878661793245,
+      "trades": 56,
+      "fees_eur": 76.31322508778695,
+      "open_at_end": 0,
+      "long_trades": 56,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -10.126585895772976,
+      "end_eur": 898.7341410422703,
+      "win_rate": 27.083333333333332,
+      "max_dd_pct": 10.154530568377872,
+      "trades": 48,
+      "fees_eur": 67.97413952580281,
+      "open_at_end": 0,
+      "long_trades": 48,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -26.255687913094505,
+      "end_eur": 737.443120869055,
+      "win_rate": 33.33333333333333,
+      "max_dd_pct": 27.706260698121127,
+      "trades": 159,
+      "fees_eur": 193.79503088582612,
+      "open_at_end": 0,
+      "long_trades": 159,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 4,
+        "sum": -17.17
+       },
+       "stop_loss": {
+        "count": 102,
+        "sum": -474.96
+       },
+       "take_profit": {
+        "count": 53,
+        "sum": 229.58
+       }
+      }
+     }
+    },
+    "smc variant: no sweep required": {
+     "BTC": {
+      "ret_pct": -12.62131247513194,
+      "end_eur": 873.7868752486806,
+      "win_rate": 34.61538461538461,
+      "max_dd_pct": 13.833468803124898,
+      "trades": 78,
+      "fees_eur": 108.70025083587666,
+      "open_at_end": 0,
+      "long_trades": 78,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -17.253053468915024,
+      "end_eur": 827.4694653108497,
+      "win_rate": 27.027027027027028,
+      "max_dd_pct": 18.87591825419926,
+      "trades": 74,
+      "fees_eur": 97.62079520105453,
+      "open_at_end": 0,
+      "long_trades": 74,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -9.57045829256894,
+      "end_eur": 904.2954170743106,
+      "win_rate": 34.32835820895522,
+      "max_dd_pct": 9.598575883983617,
+      "trades": 67,
+      "fees_eur": 95.48514115493953,
+      "open_at_end": 0,
+      "long_trades": 67,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -34.71588087028613,
+      "end_eur": 652.8411912971387,
+      "win_rate": 31.963470319634702,
+      "max_dd_pct": 35.72440423777032,
+      "trades": 219,
+      "fees_eur": 254.42313289447176,
+      "open_at_end": 0,
+      "long_trades": 219,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 7,
+        "sum": -30.56
+       },
+       "stop_loss": {
+        "count": 142,
+        "sum": -633.16
+       },
+       "take_profit": {
+        "count": 70,
+        "sum": 316.56
+       }
+      }
+     }
+    },
+    "smc variant: target = next 1h swing high": {
+     "BTC": {
+      "ret_pct": -7.185887405416147,
+      "end_eur": 928.1411259458386,
+      "win_rate": 41.81818181818181,
+      "max_dd_pct": 8.523980225995768,
+      "trades": 55,
+      "fees_eur": 78.33562232855847,
+      "open_at_end": 0,
+      "long_trades": 55,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.981063565359062,
+      "end_eur": 880.1893643464093,
+      "win_rate": 28.57142857142857,
+      "max_dd_pct": 14.524814458053845,
+      "trades": 56,
+      "fees_eur": 76.22903386519775,
+      "open_at_end": 0,
+      "long_trades": 56,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -10.342472948531768,
+      "end_eur": 896.5752705146823,
+      "win_rate": 27.083333333333332,
+      "max_dd_pct": 10.370350494577952,
+      "trades": 48,
+      "fees_eur": 67.82265212747197,
+      "open_at_end": 0,
+      "long_trades": 48,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -26.8027221335019,
+      "end_eur": 731.972778664981,
+      "win_rate": 32.70440251572327,
+      "max_dd_pct": 28.242534590983965,
+      "trades": 159,
+      "fees_eur": 193.25437492866092,
+      "open_at_end": 0,
+      "long_trades": 159,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 4,
+        "sum": -17.17
+       },
+       "stop_loss": {
+        "count": 103,
+        "sum": -476.29
+       },
+       "take_profit": {
+        "count": 52,
+        "sum": 225.43
+       }
+      }
+     }
+    },
+    "smc variant: shorts allowed (paper margin)": {
+     "BTC": {
+      "ret_pct": -13.874619136292132,
+      "end_eur": 861.2538086370787,
+      "win_rate": 39.44954128440367,
+      "max_dd_pct": 16.22575123175994,
+      "trades": 109,
+      "fees_eur": 148.77105119937673,
+      "open_at_end": 1,
+      "long_trades": 55,
+      "short_trades": 54
+     },
+     "ETH": {
+      "ret_pct": -19.45475292249802,
+      "end_eur": 805.4524707750198,
+      "win_rate": 28.000000000000004,
+      "max_dd_pct": 22.13770367151529,
+      "trades": 100,
+      "fees_eur": 129.29408419760946,
+      "open_at_end": 0,
+      "long_trades": 56,
+      "short_trades": 44
+     },
+     "SOL": {
+      "ret_pct": -14.373842614623433,
+      "end_eur": 856.2615738537656,
+      "win_rate": 33.63636363636363,
+      "max_dd_pct": 15.409673189284195,
+      "trades": 110,
+      "fees_eur": 150.69198364332826,
+      "open_at_end": 0,
+      "long_trades": 48,
+      "short_trades": 62
+     },
+     "COMBINED": {
+      "ret_pct": -40.67184387168212,
+      "end_eur": 593.2815612831788,
+      "win_rate": 33.85579937304075,
+      "max_dd_pct": 44.1788949445307,
+      "trades": 319,
+      "fees_eur": 343.31105070581117,
+      "open_at_end": 1,
+      "long_trades": 159,
+      "short_trades": 160,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 10,
+        "sum": -29.57
+       },
+       "stop_loss": {
+        "count": 201,
+        "sum": -825.56
+       },
+       "take_profit": {
+        "count": 108,
+        "sum": 447.6
+       }
+      }
+     }
+    }
+   }
+  },
+  "OUT-OF-SAMPLE (last 30%)": {
+   "buy_hold": {
+    "BTC": {
+     "ret_pct": 18.90585103530482,
+     "max_dd_pct": 27.17754432240534
+    },
+    "ETH": {
+     "ret_pct": 14.92220682340697,
+     "max_dd_pct": 36.3506894660367
+    },
+    "SOL": {
+     "ret_pct": 17.441477558671448,
+     "max_dd_pct": 36.51746069842793
+    },
+    "COMBINED": {
+     "ret_pct": 17.08984513912776,
+     "max_dd_pct": 31.541947577714424
+    }
+   },
+   "strategies": {
+    "ema_cross (old, 1h)": {
+     "BTC": {
+      "ret_pct": -4.53440119043107,
+      "end_eur": 954.6559880956893,
+      "win_rate": 28.888888888888886,
+      "max_dd_pct": 5.818957467631438,
+      "trades": 45,
+      "fees_eur": 55.13318137899967,
+      "open_at_end": 0,
+      "long_trades": 45,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.440872326086293,
+      "end_eur": 885.591276739137,
+      "win_rate": 17.857142857142858,
+      "max_dd_pct": 12.580308851829553,
+      "trades": 56,
+      "fees_eur": 66.47230244258517,
+      "open_at_end": 0,
+      "long_trades": 56,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -9.38332354550523,
+      "end_eur": 906.1667645449477,
+      "win_rate": 26.0,
+      "max_dd_pct": 10.11480114021566,
+      "trades": 50,
+      "fees_eur": 58.22940297882971,
+      "open_at_end": 0,
+      "long_trades": 50,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -23.734462614697005,
+      "end_eur": 762.6553738530299,
+      "win_rate": 23.841059602649008,
+      "max_dd_pct": 24.17237531828145,
+      "trades": 151,
+      "fees_eur": 164.20409256060515,
+      "open_at_end": 0,
+      "long_trades": 151,
+      "short_trades": 0,
+      "by_reason": {
+       "ema_cross_down": {
+        "count": 133,
+        "sum": -362.22
+       },
+       "stop_loss": {
+        "count": 6,
+        "sum": -62.29
+       },
+       "take_profit": {
+        "count": 12,
+        "sum": 187.16
+       }
+      }
+     }
+    },
+    "mtf_ema (4h trend + 1h pullback)": {
+     "BTC": {
+      "ret_pct": -6.083335232145515,
+      "end_eur": 939.1666476785449,
+      "win_rate": 28.947368421052634,
+      "max_dd_pct": 9.76652334980539,
+      "trades": 38,
+      "fees_eur": 54.86456750503931,
+      "open_at_end": 0,
+      "long_trades": 38,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -11.925723178152614,
+      "end_eur": 880.7427682184739,
+      "win_rate": 17.94871794871795,
+      "max_dd_pct": 13.165528176480127,
+      "trades": 39,
+      "fees_eur": 53.96921801468841,
+      "open_at_end": 0,
+      "long_trades": 39,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -4.6969803238074315,
+      "end_eur": 953.0301967619257,
+      "win_rate": 25.0,
+      "max_dd_pct": 8.193700644762888,
+      "trades": 32,
+      "fees_eur": 42.76340685391977,
+      "open_at_end": 0,
+      "long_trades": 32,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -21.4610367214929,
+      "end_eur": 785.3896327850711,
+      "win_rate": 23.853211009174313,
+      "max_dd_pct": 27.262324396619135,
+      "trades": 109,
+      "fees_eur": 139.77941223763528,
+      "open_at_end": 0,
+      "long_trades": 109,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_trend_down": {
+        "count": 61,
+        "sum": -266.47
+       },
+       "stop_loss": {
+        "count": 25,
+        "sum": -211.21
+       },
+       "take_profit": {
+        "count": 23,
+        "sum": 263.08
+       }
+      }
+     }
+    },
+    "smc (4h bias, 1h struct, 15m entry)": {
+     "BTC": {
+      "ret_pct": 2.3164696409430974,
+      "end_eur": 1023.1646964094309,
+      "win_rate": 57.89473684210527,
+      "max_dd_pct": 1.4170422682689994,
+      "trades": 19,
+      "fees_eur": 29.032262154220074,
+      "open_at_end": 0,
+      "long_trades": 19,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": 0.8593637419316069,
+      "end_eur": 1008.5936374193161,
+      "win_rate": 44.44444444444444,
+      "max_dd_pct": 4.260580085757247,
+      "trades": 27,
+      "fees_eur": 41.144065934013945,
+      "open_at_end": 0,
+      "long_trades": 27,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -4.209999382925867,
+      "end_eur": 957.9000061707413,
+      "win_rate": 27.77777777777778,
+      "max_dd_pct": 5.016613387351433,
+      "trades": 18,
+      "fees_eur": 26.501877128842,
+      "open_at_end": 0,
+      "long_trades": 18,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -1.1970868197047624,
+      "end_eur": 988.0291318029524,
+      "win_rate": 43.75,
+      "max_dd_pct": 7.330702637903953,
+      "trades": 64,
+      "fees_eur": 97.41239673668821,
+      "open_at_end": 0,
+      "long_trades": 64,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 3,
+        "sum": -12.67
+       },
+       "stop_loss": {
+        "count": 33,
+        "sum": -150.97
+       },
+       "take_profit": {
+        "count": 28,
+        "sum": 151.67
+       }
+      }
+     }
+    },
+    "smc variant: no sweep required": {
+     "BTC": {
+      "ret_pct": -3.423674460019377,
+      "end_eur": 965.7632553998062,
+      "win_rate": 31.03448275862069,
+      "max_dd_pct": 4.28365442889,
+      "trades": 29,
+      "fees_eur": 42.66089221652461,
+      "open_at_end": 0,
+      "long_trades": 29,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": -0.0036630561096706593,
+      "end_eur": 999.9633694389033,
+      "win_rate": 47.22222222222222,
+      "max_dd_pct": 4.459336846042366,
+      "trades": 36,
+      "fees_eur": 54.29425824945078,
+      "open_at_end": 0,
+      "long_trades": 36,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -2.506876077565401,
+      "end_eur": 974.931239224346,
+      "win_rate": 42.42424242424242,
+      "max_dd_pct": 4.8208258525466245,
+      "trades": 33,
+      "fees_eur": 49.06595985011236,
+      "open_at_end": 0,
+      "long_trades": 33,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -5.903785532674533,
+      "end_eur": 940.9621446732547,
+      "win_rate": 40.816326530612244,
+      "max_dd_pct": 7.985729227329168,
+      "trades": 98,
+      "fees_eur": 143.02593070483687,
+      "open_at_end": 0,
+      "long_trades": 98,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 4,
+        "sum": -15.06
+       },
+       "stop_loss": {
+        "count": 54,
+        "sum": -246.24
+       },
+       "take_profit": {
+        "count": 40,
+        "sum": 202.26
+       }
+      }
+     }
+    },
+    "smc variant: target = next 1h swing high": {
+     "BTC": {
+      "ret_pct": 2.4575588846241114,
+      "end_eur": 1024.575588846241,
+      "win_rate": 57.89473684210527,
+      "max_dd_pct": 1.4170422682690043,
+      "trades": 19,
+      "fees_eur": 29.046450603481617,
+      "open_at_end": 0,
+      "long_trades": 19,
+      "short_trades": 0
+     },
+     "ETH": {
+      "ret_pct": 0.8290755401020533,
+      "end_eur": 1008.2907554010205,
+      "win_rate": 44.44444444444444,
+      "max_dd_pct": 4.260580085757272,
+      "trades": 27,
+      "fees_eur": 41.1332317145706,
+      "open_at_end": 0,
+      "long_trades": 27,
+      "short_trades": 0
+     },
+     "SOL": {
+      "ret_pct": -4.379473447497362,
+      "end_eur": 956.2052655250263,
+      "win_rate": 27.77777777777778,
+      "max_dd_pct": 5.184660370254813,
+      "trades": 18,
+      "fees_eur": 26.463808498717945,
+      "open_at_end": 0,
+      "long_trades": 18,
+      "short_trades": 0
+     },
+     "COMBINED": {
+      "ret_pct": -1.2659405164777593,
+      "end_eur": 987.3405948352224,
+      "win_rate": 43.75,
+      "max_dd_pct": 7.330702637904015,
+      "trades": 64,
+      "fees_eur": 97.3078007180967,
+      "open_at_end": 0,
+      "long_trades": 64,
+      "short_trades": 0,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 3,
+        "sum": -12.66
+       },
+       "stop_loss": {
+        "count": 33,
+        "sum": -150.82
+       },
+       "take_profit": {
+        "count": 28,
+        "sum": 150.82
+       }
+      }
+     }
+    },
+    "smc variant: shorts allowed (paper margin)": {
+     "BTC": {
+      "ret_pct": -1.6480230789517214,
+      "end_eur": 983.5197692104828,
+      "win_rate": 41.46341463414634,
+      "max_dd_pct": 3.57985996834168,
+      "trades": 41,
+      "fees_eur": 61.66399886638079,
+      "open_at_end": 0,
+      "long_trades": 19,
+      "short_trades": 22
+     },
+     "ETH": {
+      "ret_pct": 0.8580084290971568,
+      "end_eur": 1008.5800842909716,
+      "win_rate": 50.0,
+      "max_dd_pct": 4.370236015955138,
+      "trades": 50,
+      "fees_eur": 76.4045145532292,
+      "open_at_end": 1,
+      "long_trades": 27,
+      "short_trades": 23
+     },
+     "SOL": {
+      "ret_pct": -1.8434102023801913,
+      "end_eur": 981.5658979761981,
+      "win_rate": 41.935483870967744,
+      "max_dd_pct": 4.967867521432144,
+      "trades": 31,
+      "fees_eur": 46.31072497027739,
+      "open_at_end": 0,
+      "long_trades": 18,
+      "short_trades": 13
+     },
+     "COMBINED": {
+      "ret_pct": -2.6817370952772035,
+      "end_eur": 973.1826290472279,
+      "win_rate": 45.08196721311475,
+      "max_dd_pct": 9.182877569202324,
+      "trades": 122,
+      "fees_eur": 185.33969402707214,
+      "open_at_end": 1,
+      "long_trades": 64,
+      "short_trades": 58,
+      "by_reason": {
+       "4h_bias_lost": {
+        "count": 4,
+        "sum": -15.9
+       },
+       "stop_loss": {
+        "count": 63,
+        "sum": -286.22
+       },
+       "take_profit": {
+        "count": 55,
+        "sum": 273.94
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

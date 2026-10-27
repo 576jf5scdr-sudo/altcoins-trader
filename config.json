@@ -1,0 +1,72 @@
+{
+  "_comment": "All money is virtual. Change 'strategy.active' to switch strategy. Every number below can be edited without touching code.",
+  "quote_currency": "EUR",
+  "coins": {
+    "BTC": {"binance": "BTCEUR", "kraken": "XBTEUR"},
+    "ETH": {"binance": "ETHEUR", "kraken": "ETHEUR"},
+    "SOL": {"binance": "SOLEUR", "kraken": "SOLEUR"}
+  },
+  "data": {
+    "primary_source": "binance",
+    "fallback_source": "kraken",
+    "history_days": 730
+  },
+  "account": {
+    "starting_balance_eur": 1000.0,
+    "taker_fee_pct": 0.25,
+    "slippage_pct": 0.05
+  },
+  "risk": {
+    "risk_per_trade_pct": 1.0,
+    "max_allocation_per_coin_pct": 30.0
+  },
+  "strategy": {"active": "smc"},
+  "strategies": {
+    "ema_cross": {
+      "_doc": "OLD simple strategy. 1h candles: EMA20 crosses above EMA50 -> buy. Fixed % stop/target.",
+      "timeframe": "1h",
+      "ema_fast": 20, "ema_slow": 50,
+      "require_close_above_slow_ema": true,
+      "stop_loss_pct": 4.0, "take_profit_pct": 8.0,
+      "exit_on_cross_down": true
+    },
+    "mtf_ema": {
+      "_doc": "SIMPLE multi-timeframe: 4h EMA trend filter + 1h pullback-and-reclaim of EMA20. ATR stop, 2R target, exit if 4h trend turns.",
+      "timeframe": "1h",
+      "h4_ema_fast": 20, "h4_ema_slow": 50, "use_h4_ema200": false,
+      "h4_atr_len": 14,
+      "ema_fast": 20, "ema_slow": 50,
+      "dip_lookback_bars": 5,
+      "atr_mult": 2.0, "rr": 2.0,
+      "min_stop_pct": 0.5
+    },
+    "smc": {
+      "_doc": "Smart-money style: 4h bias + 1h structure + 15m break of structure + liquidity sweep + FVG/order-block pullback entry.",
+      "timeframe": "15m",
+      "h4_ema_fast": 20, "h4_ema_slow": 50, "use_h4_ema200": false, "h4_atr_len": 14,
+      "h1_swing_n": 2,
+      "swing_n": 2,
+      "require_sweep": true,
+      "sweep_lookback_bars": 32,
+      "leg_lookback_bars": 24,
+      "min_fvg_pct": 0.03,
+      "setup_expiry_bars": 32,
+      "stop_buffer_pct": 0.05,
+      "min_stop_pct": 0.4,
+      "max_stop_pct": 3.0,
+      "target_mode": "rr",
+      "rr": 2.0,
+      "liq_min_r": 1.5, "liq_max_r": 4.0,
+      "exit_on_h4_turn": true,
+      "allow_shorts": false
+    }
+  },
+  "backtest": {
+    "warmup_days": 14,
+    "oos_fraction": 0.30
+  },
+  "live": {
+    "check_every_minutes": 15,
+    "history_candles": {"1h": 1000, "15m": 4000}
+  }
+}

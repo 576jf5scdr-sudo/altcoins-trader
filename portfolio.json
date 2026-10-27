@@ -1,0 +1,67 @@
+{
+ "updated": "2026-10-27T14:15:40+02:00",
+ "timezone": "Europe/Athens",
+ "paper_money_only": true,
+ "strategy": "smc",
+ "timeframe": "15m",
+ "starting_balance_eur": 1000.0,
+ "cash_eur": 1000.0,
+ "equity_eur": 1000.0,
+ "total_return_pct": 0.0,
+ "realised_pnl_eur": 0,
+ "closed_trades": 0,
+ "wins": 0,
+ "max_drawdown_pct": 0.0,
+ "prices_eur": {
+  "BTC": 71575.1,
+  "ETH": 2074.17,
+  "SOL": 89.66
+ },
+ "open_positions": {},
+ "pending_orders": {},
+ "last_candle_processed_utc": {
+  "BTC": "2026-10-27 12:00:00+00:00",
+  "ETH": "2026-10-27 12:00:00+00:00",
+  "SOL": "2026-10-27 12:00:00+00:00"
+ },
+ "data_source": {
+  "BTC": "binance",
+  "ETH": "binance",
+  "SOL": "binance"
+ },
+ "params": {
+  "strategy": {
+   "_doc": "Smart-money style: 4h bias + 1h structure + 15m break of structure + liquidity sweep + FVG/order-block pullback entry.",
+   "timeframe": "15m",
+   "h4_ema_fast": 20,
+   "h4_ema_slow": 50,
+   "use_h4_ema200": false,
+   "h4_atr_len": 14,
+   "h1_swing_n": 2,
+   "swing_n": 2,
+   "require_sweep": true,
+   "sweep_lookback_bars": 32,
+   "leg_lookback_bars": 24,
+   "min_fvg_pct": 0.03,
+   "setup_expiry_bars": 32,
+   "stop_buffer_pct": 0.05,
+   "min_stop_pct": 0.4,
+   "max_stop_pct": 3.0,
+   "target_mode": "rr",
+   "rr": 2.0,
+   "liq_min_r": 1.5,
+   "liq_max_r": 4.0,
+   "exit_on_h4_turn": true,
+   "allow_shorts": false
+  },
+  "risk": {
+   "risk_per_trade_pct": 1.0,
+   "max_allocation_per_coin_pct": 30.0
+  },
+  "account": {
+   "starting_balance_eur": 1000.0,
+   "taker_fee_pct": 0.25,
+   "slippage_pct": 0.05
+  }
+ }
+}
