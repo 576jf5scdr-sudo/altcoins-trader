@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-10-28 01:42",
+ "last_updated_athens": "2026-10-28 02:12",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-10-28T01:30:41+02:00"
+  "bot_last_check_athens": "2026-10-28T02:06:15+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -203,6 +203,10 @@
   {
    "time_athens": "2026-10-28T01:30:41+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-10-28T02:06:15+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -212,7 +216,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 72591.62
+   "price_eur": 72459.63
   },
   "ETH": {
    "trades": 0,
@@ -220,7 +224,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2109.66
+   "price_eur": 2105.79
   },
   "SOL": {
    "trades": 0,
@@ -228,38 +232,38 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 90.89
+   "price_eur": 90.82
   }
  },
  "h4_bias": {
   "BTC": {
    "bias": "NEUTRAL",
-   "last_closed_4h_close_athens": "2026-10-27 22:00",
-   "close": 72456.94,
-   "ema20": 71864.17,
-   "ema50": 72334.86,
+   "last_closed_4h_close_athens": "2026-10-28 02:00",
+   "close": 72591.7,
+   "ema20": 71933.46,
+   "ema50": 72344.93,
    "source": "binance"
   },
   "ETH": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-10-27 22:00",
-   "close": 2105.22,
-   "ema20": 2090.52,
-   "ema50": 2117.39,
+   "last_closed_4h_close_athens": "2026-10-28 02:00",
+   "close": 2109.37,
+   "ema20": 2092.31,
+   "ema50": 2117.07,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-10-27 22:00",
-   "close": 90.72,
-   "ema20": 90.53,
-   "ema50": 91.74,
+   "last_closed_4h_close_athens": "2026-10-28 02:00",
+   "close": 90.94,
+   "ema20": 90.56,
+   "ema50": 91.71,
    "source": "binance"
   }
  },
  "activity": [
   {
-   "t": "10-28 01:30",
+   "t": "10-28 02:06",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
