@@ -327,17 +327,23 @@
     function grab(block, key) {
       if (!block) return null;
       if (key === "buy") return block.buy_hold && block.buy_hold.COMBINED;
-      var s = block.strategies && block.strategies["smc (4h bias, 1h struct, 15m entry)"];
+      var st = block.strategies || {}, s = null;
+      Object.keys(st).forEach(function (k) { if (!s && k.indexOf("smc long+short") === 0) s = st[k]; });
+      if (!s) s = st["smc (4h bias, 1h struct, 15m entry)"];
       return s && s.COMBINED;
     }
     var bits = [];
     var a = grab(full, "smc");
     var b = grab(oos, "smc");
     var c = grab(oos, "buy");
-    if (a && num(a.ret_pct) != null) bits.push("Over the full window the live SMC rules returned " + fmt1(a.ret_pct) + " combined.");
+    if (a && num(a.ret_pct) != null) bits.push("Over the full window the live SMC long+short rules returned " + fmt1(a.ret_pct) + " combined.");
     if (b && num(b.ret_pct) != null) bits.push("On the later out-of-sample stretch they returned " + fmt1(b.ret_pct) + ".");
     if (c && num(c.ret_pct) != null) bits.push("Buy and hold of the same three coins returned " + fmt1(c.ret_pct) + " in that stretch.");
-    bits.push("Every fill in the test pays a 0.25% fee plus slippage. A backtest is one past window, not a promise. This page is paper money only.");
+    var inf = bt.info || {};
+    var fe = num(inf.fee_pct) != null ? inf.fee_pct + "%" : "a";
+    var sl = num(inf.slippage_pct) != null ? " + " + inf.slippage_pct + "% slippage" : " plus slippage";
+    bits.push("Every fill pays " + fe + " fee" + sl + " (Bybit EU perpetual futures rates); shorts also pay 0.01% funding per 8h.");
+    bits.push(" A backtest is one past window, not a promise. This page is paper money only.");
     return bits.join(" ");
   }
 

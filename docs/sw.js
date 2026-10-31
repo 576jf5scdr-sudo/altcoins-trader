@@ -2,7 +2,7 @@
 // data.json is network-first so a phone picks up the 15-minute publish.
 // Hero video stays off this cache: iPhone Safari plays it with byte-range
 // requests, and a cached full file breaks that.
-const CACHE = "altcoins-v5";
+const CACHE = "altcoins-v6";
 const SHELL = [
   "./",
   "./index.html",
