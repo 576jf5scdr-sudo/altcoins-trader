@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-11-01 23:50",
+ "last_updated_athens": "2026-11-02 00:19",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-01T23:34:25+02:00"
+  "bot_last_check_athens": "2026-11-02T00:07:58+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -55,6 +55,14 @@
   {
    "time_athens": "2026-11-01T23:34:25+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-01T23:55:50+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-02T00:07:58+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -64,7 +72,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 69544.86
+   "price_eur": 69598.86
   },
   "ETH": {
    "trades": 0,
@@ -72,7 +80,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2022.14
+   "price_eur": 2023.07
   },
   "SOL": {
    "trades": 0,
@@ -80,7 +88,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 84.12
+   "price_eur": 84.26
   }
  },
  "h4_bias": {
@@ -111,9 +119,14 @@
  },
  "activity": [
   {
-   "t": "11-01 23:34",
+   "t": "11-02 00:07",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
+  },
+  {
+   "t": "11-02 00:07",
+   "text": "ETH 4h bearish, 1h structure down. Watching 15m for sweep + break (short)",
+   "kind": "structure"
   },
   {
    "t": "11-01 23:10",
@@ -178,11 +191,6 @@
   {
    "t": "10-27 14:00",
    "text": "ETH 4h bias bearish. Waiting",
-   "kind": "bear"
-  },
-  {
-   "t": "10-27 14:00",
-   "text": "BTC 4h bias bearish. Waiting",
    "kind": "bear"
   }
  ],
