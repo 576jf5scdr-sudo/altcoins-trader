@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-11-01 23:21",
+ "last_updated_athens": "2026-11-01 23:50",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-01T23:15:40+02:00"
+  "bot_last_check_athens": "2026-11-01T23:34:25+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -51,6 +51,10 @@
   {
    "time_athens": "2026-11-01T23:15:40+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-01T23:34:25+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -60,7 +64,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 69474.7
+   "price_eur": 69544.86
   },
   "ETH": {
    "trades": 0,
@@ -68,7 +72,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2019.82
+   "price_eur": 2022.14
   },
   "SOL": {
    "trades": 0,
@@ -76,7 +80,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 84.16
+   "price_eur": 84.12
   }
  },
  "h4_bias": {
@@ -107,7 +111,7 @@
  },
  "activity": [
   {
-   "t": "11-01 23:15",
+   "t": "11-01 23:34",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
