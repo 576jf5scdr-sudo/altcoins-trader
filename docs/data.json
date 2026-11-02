@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-11-02 00:19",
+ "last_updated_athens": "2026-11-02 14:07",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 0.0,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-02T00:07:58+02:00"
+  "bot_last_check_athens": "2026-11-02T02:03:27+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -63,6 +63,18 @@
   {
    "time_athens": "2026-11-02T00:07:58+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-02T00:21:54+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-02T02:02:55+02:00",
+   "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-02T02:03:27+02:00",
+   "equity_eur": 1000.0
   }
  ],
  "per_coin": {
@@ -72,7 +84,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 69598.86
+   "price_eur": 70280.67
   },
   "ETH": {
    "trades": 0,
@@ -80,7 +92,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2023.07
+   "price_eur": 2043.61
   },
   "SOL": {
    "trades": 0,
@@ -88,38 +100,38 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 84.26
+   "price_eur": 84.92
   }
  },
  "h4_bias": {
   "BTC": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-01 22:00",
-   "close": 69010.27,
-   "ema20": 69327.25,
-   "ema50": 70465.05,
+   "last_closed_4h_close_athens": "2026-11-02 14:00",
+   "close": 69415.52,
+   "ema20": 69503.98,
+   "ema50": 70379.48,
    "source": "binance"
   },
   "ETH": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-01 22:00",
-   "close": 2003.67,
-   "ema20": 2012.06,
-   "ema50": 2049.16,
+   "last_closed_4h_close_athens": "2026-11-02 14:00",
+   "close": 2037.69,
+   "ema20": 2022.82,
+   "ema50": 2048.54,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-01 22:00",
-   "close": 83.37,
-   "ema20": 85.47,
-   "ema50": 87.85,
+   "last_closed_4h_close_athens": "2026-11-02 14:00",
+   "close": 83.83,
+   "ema20": 85.15,
+   "ema50": 87.36,
    "source": "binance"
   }
  },
  "activity": [
   {
-   "t": "11-02 00:07",
+   "t": "11-02 02:03",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
