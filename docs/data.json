@@ -1,23 +1,49 @@
 {
- "last_updated_athens": "2026-11-02 14:07",
+ "last_updated_athens": "2026-11-03 04:05",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 1000.0,
-  "cash_eur": 1000.0,
-  "pnl_eur": 0.0,
-  "pnl_pct": 0.0,
-  "max_drawdown_pct": 0.0,
+  "equity_eur": 998.9,
+  "cash_eur": 1299.24,
+  "pnl_eur": -1.1,
+  "pnl_pct": -0.11,
+  "max_drawdown_pct": 0.193,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-02T02:03:27+02:00"
+  "bot_last_check_athens": "2026-11-03T04:05:05+02:00"
  },
- "open_positions": [],
+ "open_positions": [
+  {
+   "coin": "ETH",
+   "side": "short",
+   "qty": 0.1490977020816144,
+   "entry_price": 2012.103445,
+   "entry_time_utc": "2026-11-02 22:15:00+00:00",
+   "stop": 2047.6711766243961,
+   "take_profit": 1940.967981751208,
+   "price_now": 2014.34,
+   "value_eur": 300.33346521107916,
+   "funding_paid_eur": 0.0141,
+   "unrealised_pnl_eur": -1.0975337673928518
+  }
+ ],
  "pending_orders": {},
- "recent_fills": [],
+ "recent_fills": [
+  {
+   "time": "2026-11-02 22:15:00+00:00",
+   "coin": "ETH",
+   "side": "SELL_SHORT",
+   "qty": 0.1490977020816144,
+   "price": 2012.103445,
+   "fee_eur": 0.75,
+   "value_eur": 300.0,
+   "reason": "smc_short_fvg",
+   "cash_after": 1299.25
+  }
+ ],
  "recent_closed_trades": [],
  "equity_curve": [
   {
@@ -75,6 +101,10 @@
   {
    "time_athens": "2026-11-02T02:03:27+02:00",
    "equity_eur": 1000.0
+  },
+  {
+   "time_athens": "2026-11-03T04:05:05+02:00",
+   "equity_eur": 998.9
   }
  ],
  "per_coin": {
@@ -84,7 +114,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 70280.67
+   "price_eur": 68809.33
   },
   "ETH": {
    "trades": 0,
@@ -92,7 +122,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2043.61
+   "price_eur": 2014.34
   },
   "SOL": {
    "trades": 0,
@@ -100,32 +130,32 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 84.92
+   "price_eur": 82.41
   }
  },
  "h4_bias": {
   "BTC": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-02 14:00",
-   "close": 69415.52,
-   "ema20": 69503.98,
-   "ema50": 70379.48,
+   "last_closed_4h_close_athens": "2026-11-03 02:00",
+   "close": 68535.32,
+   "ema20": 69322.87,
+   "ema50": 70202.92,
    "source": "binance"
   },
   "ETH": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-02 14:00",
-   "close": 2037.69,
-   "ema20": 2022.82,
-   "ema50": 2048.54,
+   "last_closed_4h_close_athens": "2026-11-03 02:00",
+   "close": 2010.12,
+   "ema20": 2020.99,
+   "ema50": 2044.88,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-02 14:00",
-   "close": 83.83,
-   "ema20": 85.15,
-   "ema50": 87.36,
+   "last_closed_4h_close_athens": "2026-11-03 02:00",
+   "close": 82.05,
+   "ema20": 84.43,
+   "ema50": 86.8,
    "source": "binance"
   }
  },
