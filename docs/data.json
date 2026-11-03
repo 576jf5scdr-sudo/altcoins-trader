@@ -1,19 +1,19 @@
 {
- "last_updated_athens": "2026-11-03 13:56",
+ "last_updated_athens": "2026-11-03 14:29",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 993.5,
-  "cash_eur": 1295.2,
-  "pnl_eur": -6.5,
-  "pnl_pct": -0.65,
+  "equity_eur": 990.96,
+  "cash_eur": 1295.19,
+  "pnl_eur": -9.04,
+  "pnl_pct": -0.904,
   "max_drawdown_pct": 0.832,
   "closed_trades": 1,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T13:47:18+02:00"
+  "bot_last_check_athens": "2026-11-03T14:28:55+02:00"
  },
  "open_positions": [
   {
@@ -24,10 +24,10 @@
    "entry_time_utc": "2026-11-02 22:15:00+00:00",
    "stop": 2047.6711766243961,
    "take_profit": 1940.967981751208,
-   "price_now": 2023.51,
-   "value_eur": 301.7006911391676,
-   "funding_paid_eur": 0.0507,
-   "unrealised_pnl_eur": -2.501362608248011
+   "price_now": 2040.53,
+   "value_eur": 304.2383340285966,
+   "funding_paid_eur": 0.0526,
+   "unrealised_pnl_eur": -5.040892217273651
   }
  ],
  "pending_orders": {},
@@ -257,6 +257,14 @@
   {
    "time_athens": "2026-11-03T13:47:18+02:00",
    "equity_eur": 993.5
+  },
+  {
+   "time_athens": "2026-11-03T14:11:35+02:00",
+   "equity_eur": 993.18
+  },
+  {
+   "time_athens": "2026-11-03T14:28:55+02:00",
+   "equity_eur": 990.96
   }
  ],
  "per_coin": {
@@ -266,7 +274,7 @@
    "win_rate_pct": 0.0,
    "pnl_eur": -4.0,
    "fees_eur": 1.51,
-   "price_eur": 68894.15
+   "price_eur": 69189.91
   },
   "ETH": {
    "trades": 0,
@@ -274,7 +282,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2023.51
+   "price_eur": 2040.53
   },
   "SOL": {
    "trades": 0,
@@ -282,38 +290,38 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 82.63
+   "price_eur": 83.33
   }
  },
  "h4_bias": {
   "BTC": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-03 10:00",
-   "close": 68489.97,
-   "ema20": 69185.32,
-   "ema50": 70077.11,
+   "last_closed_4h_close_athens": "2026-11-03 14:00",
+   "close": 68880.01,
+   "ema20": 69156.24,
+   "ema50": 70030.17,
    "source": "binance"
   },
   "ETH": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-03 10:00",
-   "close": 2013.52,
-   "ema20": 2019.42,
-   "ema50": 2042.37,
+   "last_closed_4h_close_athens": "2026-11-03 14:00",
+   "close": 2025.93,
+   "ema20": 2020.04,
+   "ema50": 2041.72,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-03 10:00",
-   "close": 82.2,
-   "ema20": 84.03,
-   "ema50": 86.45,
+   "last_closed_4h_close_athens": "2026-11-03 14:00",
+   "close": 82.67,
+   "ema20": 83.9,
+   "ema50": 86.3,
    "source": "binance"
   }
  },
  "activity": [
   {
-   "t": "11-03 13:47",
+   "t": "11-03 14:28",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
