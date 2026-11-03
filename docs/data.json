@@ -1,19 +1,19 @@
 {
- "last_updated_athens": "2026-11-03 12:49",
+ "last_updated_athens": "2026-11-03 13:18",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 994.82,
-  "cash_eur": 1598.25,
-  "pnl_eur": -5.18,
-  "pnl_pct": -0.518,
-  "max_drawdown_pct": 0.614,
-  "closed_trades": 0,
+  "equity_eur": 992.71,
+  "cash_eur": 1295.2,
+  "pnl_eur": -7.29,
+  "pnl_pct": -0.729,
+  "max_drawdown_pct": 0.832,
+  "closed_trades": 1,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T12:45:40+02:00"
+  "bot_last_check_athens": "2026-11-03T13:15:40+02:00"
  },
  "open_positions": [
   {
@@ -24,27 +24,25 @@
    "entry_time_utc": "2026-11-02 22:15:00+00:00",
    "stop": 2047.6711766243961,
    "take_profit": 1940.967981751208,
-   "price_now": 2027.67,
-   "value_eur": 302.3209375798271,
-   "funding_paid_eur": 0.0469,
-   "unrealised_pnl_eur": -3.117828653374744
-  },
-  {
-   "coin": "BTC",
-   "side": "short",
-   "qty": 0.004379039233159294,
-   "entry_price": 68463.381185,
-   "entry_time_utc": "2026-11-03 07:45:00+00:00",
-   "stop": 68996.39931563335,
-   "take_profit": 67397.34492373331,
-   "price_now": 68760.59,
-   "value_eur": 301.1053213051806,
-   "funding_paid_eur": 0.0113,
-   "unrealised_pnl_eur": -2.0622566780465252
+   "price_now": 2028.76,
+   "value_eur": 302.48345407509606,
+   "funding_paid_eur": 0.0488,
+   "unrealised_pnl_eur": -3.2822351344117937
   }
  ],
  "pending_orders": {},
  "recent_fills": [
+  {
+   "time": "2026-11-03 11:00:00+00:00",
+   "coin": "BTC",
+   "side": "BUY_TO_COVER",
+   "qty": 0.0043790392331592,
+   "price": 69030.89751529116,
+   "fee_eur": 0.7557225212991461,
+   "value_eur": 302.2890085196584,
+   "reason": "stop_loss",
+   "cash_after": 1295.1986141166572
+  },
   {
    "time": "2026-11-03 07:45:00+00:00",
    "coin": "BTC",
@@ -68,7 +66,21 @@
    "cash_after": 1299.25
   }
  ],
- "recent_closed_trades": [],
+ "recent_closed_trades": [
+  {
+   "coin": "BTC",
+   "side": "short",
+   "entry_time": "2026-11-03 07:45:00+00:00",
+   "exit_time": "2026-11-03 11:00:00+00:00",
+   "entry_price": 68463.381185,
+   "exit_price": 69030.89751529116,
+   "pnl_eur": -4.003550056865401,
+   "pnl_pct": -1.3353898870808922,
+   "fees_eur": 1.505232101908783,
+   "funding_eur": 0.013141679153064101,
+   "reason": "stop_loss"
+  }
+ ],
  "equity_curve": [
   {
    "time_athens": "2026-10-27T13:51:37+02:00",
@@ -225,16 +237,24 @@
   {
    "time_athens": "2026-11-03T12:45:40+02:00",
    "equity_eur": 994.82
+  },
+  {
+   "time_athens": "2026-11-03T13:14:24+02:00",
+   "equity_eur": 993.43
+  },
+  {
+   "time_athens": "2026-11-03T13:15:40+02:00",
+   "equity_eur": 992.71
   }
  ],
  "per_coin": {
   "BTC": {
-   "trades": 0,
+   "trades": 1,
    "wins": 0,
-   "win_rate_pct": null,
-   "pnl_eur": 0,
-   "fees_eur": 0,
-   "price_eur": 68760.59
+   "win_rate_pct": 0.0,
+   "pnl_eur": -4.0,
+   "fees_eur": 1.51,
+   "price_eur": 68969.76
   },
   "ETH": {
    "trades": 0,
@@ -242,7 +262,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2027.67
+   "price_eur": 2028.76
   },
   "SOL": {
    "trades": 0,
@@ -250,7 +270,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 82.49
+   "price_eur": 82.77
   }
  },
  "h4_bias": {
@@ -281,9 +301,14 @@
  },
  "activity": [
   {
-   "t": "11-03 12:45",
+   "t": "11-03 13:15",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
+  },
+  {
+   "t": "11-03 13:15",
+   "text": "Covered short on BTC at €69,030.90 (stop loss)",
+   "kind": "buy"
   },
   {
    "t": "11-03 11:21",
@@ -348,11 +373,6 @@
   {
    "t": "11-01 14:47",
    "text": "BTC 4h bearish, 1h structure not down yet. Waiting (short)",
-   "kind": "wait"
-  },
-  {
-   "t": "11-01 00:31",
-   "text": "SOL 4h bearish, 1h structure not down yet. Waiting (short)",
    "kind": "wait"
   }
  ],
