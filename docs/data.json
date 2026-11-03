@@ -1,19 +1,19 @@
 {
- "last_updated_athens": "2026-11-03 04:05",
+ "last_updated_athens": "2026-11-03 04:08",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 998.9,
+  "equity_eur": 999.12,
   "cash_eur": 1299.24,
-  "pnl_eur": -1.1,
-  "pnl_pct": -0.11,
+  "pnl_eur": -0.88,
+  "pnl_pct": -0.088,
   "max_drawdown_pct": 0.193,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T04:05:05+02:00"
+  "bot_last_check_athens": "2026-11-03T04:08:16+02:00"
  },
  "open_positions": [
   {
@@ -24,10 +24,10 @@
    "entry_time_utc": "2026-11-02 22:15:00+00:00",
    "stop": 2047.6711766243961,
    "take_profit": 1940.967981751208,
-   "price_now": 2014.34,
-   "value_eur": 300.33346521107916,
+   "price_now": 2012.91,
+   "value_eur": 300.12025549710245,
    "funding_paid_eur": 0.0141,
-   "unrealised_pnl_eur": -1.0975337673928518
+   "unrealised_pnl_eur": -0.8843240534161676
   }
  ],
  "pending_orders": {},
@@ -105,6 +105,18 @@
   {
    "time_athens": "2026-11-03T04:05:05+02:00",
    "equity_eur": 998.9
+  },
+  {
+   "time_athens": "2026-11-03T04:05:36+02:00",
+   "equity_eur": 998.86
+  },
+  {
+   "time_athens": "2026-11-03T04:08:13+02:00",
+   "equity_eur": 999.12
+  },
+  {
+   "time_athens": "2026-11-03T04:08:16+02:00",
+   "equity_eur": 999.12
   }
  ],
  "per_coin": {
@@ -114,7 +126,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 68809.33
+   "price_eur": 68777.66
   },
   "ETH": {
    "trades": 0,
@@ -122,7 +134,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2014.34
+   "price_eur": 2012.91
   },
   "SOL": {
    "trades": 0,
@@ -130,7 +142,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 82.41
+   "price_eur": 82.25
   }
  },
  "h4_bias": {
@@ -161,7 +173,7 @@
  },
  "activity": [
   {
-   "t": "11-02 02:03",
+   "t": "11-03 04:08",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
