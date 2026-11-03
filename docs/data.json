@@ -1,19 +1,19 @@
 {
- "last_updated_athens": "2026-11-03 15:01",
+ "last_updated_athens": "2026-11-03 15:29",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 991.23,
+  "equity_eur": 990.65,
   "cash_eur": 1295.19,
-  "pnl_eur": -8.77,
-  "pnl_pct": -0.877,
+  "pnl_eur": -9.35,
+  "pnl_pct": -0.935,
   "max_drawdown_pct": 0.99,
   "closed_trades": 1,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T15:00:48+02:00"
+  "bot_last_check_athens": "2026-11-03T15:28:53+02:00"
  },
  "open_positions": [
   {
@@ -24,10 +24,10 @@
    "entry_time_utc": "2026-11-02 22:15:00+00:00",
    "stop": 2047.6711766243961,
    "take_profit": 1940.967981751208,
-   "price_now": 2038.66,
-   "value_eur": 303.95952132570403,
-   "funding_paid_eur": 0.0554,
-   "unrealised_pnl_eur": -4.764925099936915
+   "price_now": 2042.54,
+   "value_eur": 304.5380204097807,
+   "funding_paid_eur": 0.0564,
+   "unrealised_pnl_eur": -5.344374346394502
   }
  ],
  "pending_orders": {},
@@ -277,6 +277,10 @@
   {
    "time_athens": "2026-11-03T15:00:48+02:00",
    "equity_eur": 991.23
+  },
+  {
+   "time_athens": "2026-11-03T15:28:53+02:00",
+   "equity_eur": 990.65
   }
  ],
  "per_coin": {
@@ -286,7 +290,7 @@
    "win_rate_pct": 0.0,
    "pnl_eur": -4.0,
    "fees_eur": 1.51,
-   "price_eur": 69143.35
+   "price_eur": 69189.92
   },
   "ETH": {
    "trades": 0,
@@ -294,7 +298,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2038.66
+   "price_eur": 2042.54
   },
   "SOL": {
    "trades": 0,
@@ -302,7 +306,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 83.16
+   "price_eur": 82.87
   }
  },
  "h4_bias": {
@@ -333,7 +337,7 @@
  },
  "activity": [
   {
-   "t": "11-03 15:00",
+   "t": "11-03 15:28",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
