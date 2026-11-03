@@ -1,19 +1,19 @@
 {
- "last_updated_athens": "2026-11-03 11:55",
+ "last_updated_athens": "2026-11-03 12:20",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
  "allow_shorts": true,
  "account": {
   "start_eur": 1000.0,
-  "equity_eur": 995.4,
+  "equity_eur": 994.6,
   "cash_eur": 1598.25,
-  "pnl_eur": -4.6,
-  "pnl_pct": -0.46,
-  "max_drawdown_pct": 0.567,
+  "pnl_eur": -5.4,
+  "pnl_pct": -0.54,
+  "max_drawdown_pct": 0.568,
   "closed_trades": 0,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T11:45:40+02:00"
+  "bot_last_check_athens": "2026-11-03T12:20:14+02:00"
  },
  "open_positions": [
   {
@@ -24,10 +24,10 @@
    "entry_time_utc": "2026-11-02 22:15:00+00:00",
    "stop": 2047.6711766243961,
    "take_profit": 1940.967981751208,
-   "price_now": 2023.93,
-   "value_eur": 301.76331217404186,
-   "funding_paid_eur": 0.0431,
-   "unrealised_pnl_eur": -2.55643053524767
+   "price_now": 2027.23,
+   "value_eur": 302.25533459091116,
+   "funding_paid_eur": 0.045,
+   "unrealised_pnl_eur": -3.050339075322748
   },
   {
    "coin": "BTC",
@@ -37,10 +37,10 @@
    "entry_time_utc": "2026-11-03 07:45:00+00:00",
    "stop": 68996.39931563335,
    "take_profit": 67397.34492373331,
-   "price_now": 68757.62,
-   "value_eur": 301.09231555865813,
-   "funding_paid_eur": 0.0075,
-   "unrealised_pnl_eur": -2.045486675872194
+   "price_now": 68826.86,
+   "value_eur": 301.3955202351621,
+   "funding_paid_eur": 0.0094,
+   "unrealised_pnl_eur": -2.3505734336063737
   }
  ],
  "pending_orders": {},
@@ -209,6 +209,14 @@
   {
    "time_athens": "2026-11-03T11:45:40+02:00",
    "equity_eur": 995.4
+  },
+  {
+   "time_athens": "2026-11-03T12:10:35+02:00",
+   "equity_eur": 995.64
+  },
+  {
+   "time_athens": "2026-11-03T12:20:14+02:00",
+   "equity_eur": 994.6
   }
  ],
  "per_coin": {
@@ -218,7 +226,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 68757.62
+   "price_eur": 68826.86
   },
   "ETH": {
    "trades": 0,
@@ -226,7 +234,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 2023.93
+   "price_eur": 2027.23
   },
   "SOL": {
    "trades": 0,
@@ -234,7 +242,7 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 82.35
+   "price_eur": 82.56
   }
  },
  "h4_bias": {
@@ -265,7 +273,7 @@
  },
  "activity": [
   {
-   "t": "11-03 11:45",
+   "t": "11-03 12:20",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
   },
