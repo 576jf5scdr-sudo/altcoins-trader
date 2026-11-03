@@ -1,5 +1,5 @@
 {
- "last_updated_athens": "2026-11-03 21:52",
+ "last_updated_athens": "2026-11-03 22:08",
  "timezone": "Europe/Athens (UTC+2)",
  "strategy": "smc",
  "timeframe": "15m",
@@ -13,7 +13,7 @@
   "max_drawdown_pct": 1.197,
   "closed_trades": 2,
   "wins": 0,
-  "bot_last_check_athens": "2026-11-03T21:49:46+02:00"
+  "bot_last_check_athens": "2026-11-03T22:00:40+02:00"
  },
  "open_positions": [],
  "pending_orders": {},
@@ -379,6 +379,10 @@
   {
    "time_athens": "2026-11-03T21:49:46+02:00",
    "equity_eur": 988.97
+  },
+  {
+   "time_athens": "2026-11-03T22:00:40+02:00",
+   "equity_eur": 988.97
   }
  ],
  "per_coin": {
@@ -388,7 +392,7 @@
    "win_rate_pct": 0.0,
    "pnl_eur": -4.0,
    "fees_eur": 1.51,
-   "price_eur": 69247.69
+   "price_eur": 69273.14
   },
   "ETH": {
    "trades": 1,
@@ -396,7 +400,7 @@
    "win_rate_pct": 0.0,
    "pnl_eur": -7.03,
    "fees_eur": 1.51,
-   "price_eur": 2043.22
+   "price_eur": 2041.41
   },
   "SOL": {
    "trades": 0,
@@ -404,40 +408,45 @@
    "win_rate_pct": null,
    "pnl_eur": 0,
    "fees_eur": 0,
-   "price_eur": 83.24
+   "price_eur": 83.27
   }
  },
  "h4_bias": {
   "BTC": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-03 18:00",
-   "close": 69327.51,
-   "ema20": 69172.55,
-   "ema50": 70002.62,
+   "last_closed_4h_close_athens": "2026-11-03 22:00",
+   "close": 69261.48,
+   "ema20": 69181.02,
+   "ema50": 69973.56,
    "source": "binance"
   },
   "ETH": {
-   "bias": "NEUTRAL",
-   "last_closed_4h_close_athens": "2026-11-03 18:00",
-   "close": 2051.53,
-   "ema20": 2023.04,
-   "ema50": 2042.11,
+   "bias": "BEAR",
+   "last_closed_4h_close_athens": "2026-11-03 22:00",
+   "close": 2041.41,
+   "ema20": 2024.79,
+   "ema50": 2042.08,
    "source": "binance"
   },
   "SOL": {
    "bias": "BEAR",
-   "last_closed_4h_close_athens": "2026-11-03 18:00",
-   "close": 83.72,
-   "ema20": 83.89,
-   "ema50": 86.2,
+   "last_closed_4h_close_athens": "2026-11-03 22:00",
+   "close": 83.21,
+   "ema20": 83.82,
+   "ema50": 86.08,
    "source": "binance"
   }
  },
  "activity": [
   {
-   "t": "11-03 21:49",
+   "t": "11-03 22:00",
    "text": "Bot checked all 3 coins (every 15 min, closed 15m candles)",
    "kind": "check"
+  },
+  {
+   "t": "11-03 22:00",
+   "text": "ETH 4h bearish, 1h structure not down yet. Waiting (short)",
+   "kind": "wait"
   },
   {
    "t": "11-03 18:00",
@@ -503,11 +512,6 @@
    "t": "11-03 06:04",
    "text": "ETH 4h bearish, 1h structure not down yet. Waiting (short)",
    "kind": "wait"
-  },
-  {
-   "t": "11-03 06:04",
-   "text": "BTC 4h bearish, 1h structure down. Watching 15m for sweep + break (short)",
-   "kind": "structure"
   }
  ],
  "backtest": {
